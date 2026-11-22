@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prahlad Sinha Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a personal site, confident and craft-first
+   IDEA a track's waveform, where each drop is a marketing result
+   PICTURE full-width waveform in the hero, accent peaks lined up with result figures
+   COLOUR SINH brand: black ground, off-white ink, red #F93434 accent, gray #727272 support
+   TYPE Anton display + Archivo text
+   LAYOUT name across the top, waveform full width beneath, results row under it; phone stacks */
+:root{color-scheme:dark;--bg:#000000;--panel:#111111;--line:#2e2e2e;--ink:#FCFCFC;--mute:#a8a8a8;--red:#F93434;--rose:#727272;--deep:#0d0d0d}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Archivo,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+img{max-width:100%}
+.band{padding-block:clamp(40px,6vw,96px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+h1,h2,h3{font-family:Anton,Impact,sans-serif;font-weight:400;line-height:1.05;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h2{font-size:clamp(36px,5vw,52px);margin-bottom:28px}
+h3{font-size:26px}
+p{margin:0 0 12px;max-width:66ch}
+.mute{color:var(--mute)}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px max(5vw,16px);max-width:none}
+.mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800}
+.mono{width:36px;height:36px;border-radius:50%;background:var(--red);color:var(--ink);display:grid;place-items:center;font-family:Anton,sans-serif;font-size:16px}
+.links{display:flex;flex-wrap:wrap;gap:4px 20px;font-weight:500}
+.links a{text-decoration:none;color:var(--mute);padding:10px 0}
+.links a:hover,.links a:focus-visible{color:var(--ink)}
+.hero{padding-bottom:0}
+.top{display:grid;grid-template-columns:minmax(0,1fr) clamp(200px,24vw,300px);gap:clamp(24px,4vw,56px);align-items:end}
+.head{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 40%;border-radius:50%;display:block;border:4px solid var(--red)}
+.shot{width:100%;display:block;border-radius:10px;object-fit:cover}
+.pair{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:20px}
+.pair .shot{aspect-ratio:4/5}
+.wide{aspect-ratio:16/10;object-position:50% 70%;margin-bottom:20px}
+.flowimg{background:#f3f3f5;border-radius:10px;padding:6px}
+.hero h1{font-size:clamp(64px,13vw,168px);line-height:.92;text-transform:uppercase}
+.hero h1 span{display:block;color:var(--red)}
+.intro{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;align-items:end;margin-top:28px}
+.intro p{font-size:19px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--red);transition:background .15s}
+.btn.solid{background:var(--red);color:var(--bg)}
+.btn:hover,.btn:focus-visible{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wave{position:relative;height:clamp(180px,24vw,300px);margin-top:44px}
+.wave svg{position:absolute;inset:0;width:100%;height:100%}
+#wave .b{transform-box:fill-box;transform-origin:center;animation:kick calc(60s / 130) cubic-bezier(.15,.85,.35,1) infinite}
+#wave .hot{animation-name:kickhot}
+@keyframes kick{0%{transform:scaleY(1.03)}100%{transform:scaleY(.97)}}
+@keyframes kickhot{0%{transform:scaleY(1.05)}100%{transform:scaleY(.93)}}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.stat{padding:18px 16px 28px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(34px,4vw,48px);line-height:1;color:var(--red);white-space:nowrap}
+.stat span{display:block;margin-top:8px;color:var(--mute);font-size:15px;line-height:1.4}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.edu{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+.edu h3{font-size:30px;margin-bottom:6px}
+.edu dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:10px 20px;margin:20px 0 0}
+.edu dt{color:var(--mute)}
+.edu dd{margin:0;font-weight:500}
+.alt{background:var(--panel)}
+.alt .skill{background:var(--bg)}
+.timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line)}
+.job{position:relative;padding-top:40px}
+.job::before{content:"";position:absolute;top:0;left:0;width:20px;height:20px;border-radius:50%;background:var(--red);box-shadow:0 0 0 6px var(--panel)}
+.when{font-weight:700;color:var(--red);font-size:15px}
+.job h3{margin:8px 0 4px}
+.org{font-weight:700;margin-bottom:12px}
+.proj{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;padding-block:40px;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj:nth-of-type(even) .viz{order:-1}
+.tag{display:inline-block;font-size:14px;font-weight:700;color:var(--ink);background:var(--rose);border-radius:999px;padding:4px 12px;margin-bottom:14px}
+.proj h3{font-size:clamp(30px,3.4vw,40px);margin-bottom:14px}
+.result{margin-top:16px;font-weight:700;color:var(--ink);border-left:3px solid var(--red);padding-left:14px}
+.viz{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,3vw,32px);min-height:280px;display:flex;flex-direction:column;justify-content:center}
+.viz-cap{font-size:14px;color:var(--mute);margin-top:14px}
+.flow{display:flex;flex-direction:column;gap:0}
+.step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:center}
+.node{background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 14px;font-weight:700}
+.touch{font-size:14px;color:var(--rose);display:flex;align-items:center;gap:8px}
+.touch::before{content:"";flex:none;width:22px;height:2px;background:var(--rose)}
+.touch.fix{color:var(--red)}
+.touch.fix::before{background:var(--red)}
+.arrow{width:2px;height:14px;background:var(--line);margin-left:22px}
+.bars{display:flex;flex-direction:column;gap:18px}
+.brow{display:grid;grid-template-columns:8.5em minmax(0,1fr) 4em;gap:12px;align-items:center;font-size:15px}
+.bar{height:34px;border-radius:6px;background:var(--line)}
+.bar.hot{background:var(--red)}
+.bval{text-align:right;font-weight:800;white-space:nowrap}
+.dots{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:10px;max-width:420px}
+.dot{aspect-ratio:1;border-radius:50%;background:var(--red)}
+.dock{width:100%;max-width:440px;margin:0 auto;display:block}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.skill{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+.skill h3{font-size:26px;margin-bottom:12px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tools span{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--mute)}
+.sinh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.sinh .big{font-family:Anton,sans-serif;font-size:clamp(96px,16vw,200px);line-height:.85;color:var(--red)}
+.facts{display:grid;gap:14px;margin-top:20px}
+.facts div{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:16px;align-items:baseline;border-top:1px solid var(--line);padding-top:14px}
+.facts b{font-family:Anton,sans-serif;font-weight:400;font-size:30px;color:var(--ink);white-space:nowrap}
+.contact{background:var(--red);color:var(--bg)}
+.contact h2{font-size:clamp(56px,10vw,128px);text-transform:uppercase;line-height:.92;margin-bottom:32px}
+.clist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.clist a,.clist div{display:block;background:var(--bg);color:var(--ink);border-radius:14px;padding:20px 22px;text-decoration:none;min-height:44px}
+.clist small{display:block;color:var(--mute);font-size:14px;margin-bottom:4px}
+.clist strong{overflow-wrap:anywhere;font-size:17px}
+.clist a:hover,.clist a:focus-visible{background:var(--deep)}
+footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;border-top:1px solid var(--line)}
+@media(max-width:900px){.timeline,.skills{grid-template-columns:minmax(0,1fr)}.timeline::before{top:0;bottom:0;left:9px;right:auto;width:2px;height:auto}.job{padding:0 0 0 44px}.clist{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){.top{grid-template-columns:minmax(0,1fr) 38%}.intro,.about,.proj,.sinh{grid-template-columns:minmax(0,1fr)}.ctas{justify-content:flex-start}.proj:nth-of-type(even) .viz{order:0}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:600px){.links{display:none}.top{grid-template-columns:minmax(0,1fr)}.head{max-width:220px;margin:0 auto}.brow{grid-template-columns:6.5em minmax(0,1fr) 3.6em}.dots{gap:7px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.play{display:none}#wave .b{animation:none}}
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top"><span class="mono">PS</span>Prahlad Sinha</a>
+    <div class="links">
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="band hero" id="top">
+  <div class="wrap">
+    <div class="top"><h1>Prahlad<span>Sinha</span></h1><img class="head" src="img/headshot.jpg" alt="Prahlad Sinha in a navy suit at the Eller College of Management"></div>
+    <div class="intro">
+      <p>Business Marketing student at the University of Arizona's Eller College. I build content, email flows and in-store campaigns that move numbers, and I grow my own music brand, SINH, from the ground up.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#projects">See my work</a>
+        <a class="btn" href="https://www.linkedin.com/in/prahladsinha/">LinkedIn</a>
+      </div>
+    </div>
+    <div class="wave" aria-hidden="true"><svg id="wave"></svg></div>
+  </div>
+  <div class="wrap stats" aria-label="Highlights">
+    <div class="stat"><b>+200%</b><span>Weekly combo kit sales from my promo flyers</span></div>
+    <div class="stat"><b>+22%</b><span>Monthly in-store Milwaukee sales</span></div>
+    <div class="stat"><b>500%+</b><span>Of daily sales average on Milwaukee Demo Day</span></div>
+    <div class="stat"><b>50K+</b><span>Plays in one month on a SINH remix</span></div>
+  </div>
+</header>
+
+<section class="band" id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About me</h2>
+      <p>I'm a Business Marketing student at the University of Arizona's Eller College of Management, originally from Chicago. My experience spans field sales at Techtronic Industries, marketing and operations at Barnyard Records, and social media at the McGuire Center for Entrepreneurship.</p>
+      <p class="mute">Outside of school, I produce and DJ melodic bass music under the name SINH, where I build and grow my own brand from the ground up. Classical piano and rock bands came first.</p>
+    </div>
+    <div class="edu">
+      <h3>Education</h3>
+      <p class="mute">University of Arizona, Eller College of Management</p>
+      <dl>
+        <dt>Degree</dt><dd>B.S. in Business Administration</dd>
+        <dt>Major</dt><dd>Business Marketing</dd>
+        <dt>Graduation</dt><dd>2027</dd>
+        <dt>Hometown</dt><dd>Chicago, IL</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="experience">
+  <div class="wrap">
+    <h2>Work experience</h2>
+    <div class="timeline">
+      <article class="job">
+        <div class="when">Fall 2025</div>
+        <h3>Social Media Coordinator</h3>
+        <div class="org">McGuire Center for Entrepreneurship</div>
+        <p class="mute">Tracked social metrics to refine content and boost engagement, led weekly campus tabling events, and connected student entrepreneurs with university resources.</p>
+      </article>
+      <article class="job">
+        <div class="when">Summer 2026</div>
+        <h3>Marketing &amp; Operations Intern</h3>
+        <div class="org">Barnyard Records, Los Angeles</div>
+        <p class="mute">Restructured email and SMS flows to improve client conversions, and visually mapped customer and business workflows to streamline internal processes.</p>
+      </article>
+      <article class="job">
+        <div class="when">Summer 2026</div>
+        <h3>Field Sales &amp; Marketing Intern</h3>
+        <div class="org">Techtronic Industries, Chicago</div>
+        <p class="mute">Designed promotional flyers that boosted weekly combo kit sales by 200% and led 10 merchandising initiatives that grew monthly in-store Milwaukee sales by 22%.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+
+    <article class="proj">
+      <div>
+        <span class="tag">Barnyard Records</span>
+        <h3>User acquisition flowchart</h3>
+        <p class="mute">To streamline BYR's business process, I built a top-to-bottom funnel flowchart covering browsing, booking, payment and post-session follow-up. Mapping it visually exposed drop-off points and missing touchpoints.</p>
+        <p class="result">I rebuilt the email and SMS sequences around those gaps, creating a smoother experience that nurtures new users and brings past clients back.</p>
+      </div>
+      <div class="viz">
+        <div class="flowimg"><img class="shot" src="img/byr-flowchart.jpg" alt="BYR user acquisition flowchart in Miro, from content and sign-up through purchase, session and follow-up, with email and SMS touchpoints by funnel stage"></div>
+        <div class="viz-cap">The full funnel map in Miro: TOF, MOF, BOF and ads lanes, from first touch to winback. Details blurred to keep client information confidential.</div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div>
+        <span class="tag">Techtronic Industries</span>
+        <h3>Milwaukee Demo Day</h3>
+        <p class="mute">Demo Day's success started weeks before the event. I briefed coworkers on key products and talking points, spread flyers throughout the store, and personally reached out to clients to drive turnout.</p>
+        <p class="result">That groundwork turned the day into a major win, with Milwaukee sales climbing to more than 500% of the daily average.</p>
+      </div>
+      <div class="viz" aria-label="Demo Day sales versus daily average">
+        <img class="shot wide" src="img/milwaukee.jpg" alt="Milwaukee and Home Depot team on the store floor for Demo Day">
+        <div class="bars">
+          <div class="brow"><span>Daily average</span><div class="bar" style="width:19%"></div><span class="bval">100%</span></div>
+          <div class="brow"><span>Demo Day</span><div class="bar hot" style="width:100%"></div><span class="bval">500%+</span></div>
+        </div>
+        <div class="viz-cap">Milwaukee sales, in-store</div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div>
+        <span class="tag">McGuire Center</span>
+        <h3>Wildcat Hangout launch</h3>
+        <p class="mute">To launch the first-ever Wildcat Hangout for Entrepreneurs, I paired targeted social media campaigns with in-person tabling across campus. I used sales skills to start conversations and pitch the event face to face, turning casual interest into commitments.</p>
+        <p class="result">The combined digital and in-field push brought in 20 attendees, a foundation for future hangouts and a growing student founder community.</p>
+      </div>
+      <div class="viz" aria-label="20 attendees">
+        <div class="pair"><img class="shot" src="img/tabling.jpg" alt="Tabling for the Startup Wildcats Hangout with the McGuire Center"><img class="shot" src="img/hangout.jpg" alt="The first Startup Wildcats Hangout in session"><img class="shot" src="img/storyboard.jpg" alt="Attendees sharing a six-frame pitch storyboard at the Wildcat Hangout"></div>
+        <div class="dots" id="dots"></div>
+        <div class="viz-cap">20 attendees at the first event</div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div>
+        <span class="tag">Techtronic Industries</span>
+        <h3>PRIME battery dock concept</h3>
+        <p class="mute">For TTI's Operation Innovation pitch, I developed PRIME, a Ryobi ONE+ battery diagnostic dock. I built the full concept: product naming, pricing justification, a pitch script and the slogan.</p>
+        <p class="result">"Don't Guess. Build."</p>
+      </div>
+      <div class="viz" aria-label="Illustration of the PRIME dock concept">
+        <svg class="dock" viewBox="0 0 440 240" role="img" aria-label="Battery sitting in a diagnostic dock">
+          <ellipse cx="220" cy="214" rx="180" ry="14" fill="#000"/>
+          <path d="M60 150 Q60 130 80 130 H360 Q380 130 380 150 V200 Q380 210 370 210 H70 Q60 210 60 200 Z" fill="#1c1c1c"/>
+          <path d="M60 150 Q60 130 80 130 H360 Q380 130 380 150 V158 H60 Z" fill="#2e2e2e"/>
+          <rect x="250" y="164" width="104" height="30" rx="6" fill="#000"/>
+          <rect x="258" y="172" width="20" height="14" rx="2" fill="#F93434"/>
+          <rect x="282" y="172" width="20" height="14" rx="2" fill="#F93434"/>
+          <rect x="306" y="172" width="20" height="14" rx="2" fill="#F93434"/>
+          <rect x="330" y="172" width="16" height="14" rx="2" fill="#2e2e2e"/>
+          <text x="84" y="190" fill="#FCFCFC" font-family="Anton,sans-serif" font-size="26">PRIME</text>
+          <path d="M120 60 H230 Q242 60 242 72 V136 H108 V72 Q108 60 120 60 Z" fill="#c9d34a"/>
+          <path d="M108 100 H242 V136 H108 Z" fill="#1f1a1b"/>
+          <rect x="140" y="44" width="70" height="20" rx="4" fill="#9aa336"/>
+          <path d="M120 60 H130 V136 H108 V72 Q108 60 120 60 Z" fill="#e2ea74"/>
+        </svg>
+        <div class="viz-cap">Concept illustration</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="band alt" id="skills">
+  <div class="wrap">
+    <h2>What I bring</h2>
+    <div class="skills">
+      <div class="skill">
+        <h3>Social media content strategy</h3>
+        <p class="mute">Plan and create Reels, carousels and campaigns that grow audiences and drive event turnout.</p>
+        <div class="tools"><span>Canva</span><span>CapCut</span><span>Photoshop</span></div>
+      </div>
+      <div class="skill">
+        <h3>Email marketing and flow mapping</h3>
+        <p class="mute">Map customer journeys and build email and SMS flows, from welcome to winback, that turn leads into loyal clients.</p>
+        <div class="tools"><span>Miro</span><span>Email + SMS flows</span></div>
+      </div>
+      <div class="skill">
+        <h3>Performance analysis</h3>
+        <p class="mute">Track content and sales metrics, then refine strategy based on what drives results.</p>
+        <div class="tools"><span>Instagram Insights</span><span>Power BI</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="sinh">
+  <div class="wrap sinh">
+    <div>
+      <div class="big">SINH</div>
+      <p class="mute">Pronounced like "sin," rhymes with "win."</p>
+    </div>
+    <div>
+      <h2>Building my own brand</h2>
+      <p>As SINH, I produce and DJ melodic bass and dubstep. I run the brand end to end: content strategy, fan messaging and release rollouts across Instagram, Facebook and Laylo.</p>
+      <div class="facts">
+        <div><b>50K+</b><span>plays in the first month on a remix from my debut project, Sinh City Vol. 1</span></div>
+        <div><b>Support</b><span>slot for Borgore on his 360° tour</span></div>
+        <div><b>Daily</b><span>content series pairing a run with a new dubstep track each day</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contact">
+  <div class="wrap">
+    <h2>Let's work together</h2>
+    <div class="clist">
+      <a href="mailto:prahladsinha2@gmail.com"><small>Email</small><strong>prahladsinha2@gmail.com</strong></a>
+      <a href="https://www.linkedin.com/in/prahladsinha/"><small>LinkedIn</small><strong>linkedin.com/in/prahladsinha</strong></a>
+    </div>
+  </div>
+</section>
+
+<footer><span>Prahlad Sinha</span><span>Tucson, AZ and Chicago, IL</span></footer>
+
+<script>
+{
+  const dots = document.getElementById('dots');
+  dots.innerHTML = Array.from({length:20},()=>'<div class="dot"></div>').join('');
+
+  const s = document.getElementById('wave');
+  const peaks = [0.125,0.375,0.625,0.875];
+  const draw = () => {
+    const W = s.clientWidth, H = s.clientHeight;
+    if (!W || !H) return;
+    const n = Math.max(40, Math.floor(W / 9));
+    const bw = W / n, mid = H / 2;
+    let seed = 7;
+    const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;
+    let bars = '';
+    const centers = peaks.map(p => Math.round(p * n - 0.5));
+    for (let i = 0; i < n; i++) {
+      let a = 0.12 + 0.28 * rnd();
+      let hot = false;
+      for (const c of centers) {
+        const d = Math.abs(i - c);
+        if (d <= 3) { a = 0.96 - d * 0.11; hot = true; }
+        else if (d <= 5) { a = 0.62 - (d - 4) * 0.14; }
+      }
+      const h = a * (H - 8) * (hot ? 0.93 : 1);
+      bars += `<rect class="b${hot ? ' hot' : ''}" x="${(i * bw + bw * 0.18).toFixed(1)}" y="${(mid - h / 2).toFixed(1)}" width="${(bw * 0.64).toFixed(1)}" height="${h.toFixed(1)}" rx="${(bw * 0.3).toFixed(1)}" fill="${hot ? 'var(--red)' : 'var(--rose)'}" fill-opacity="${hot ? 1 : 0.45}"/>`;
+    }
+    s.innerHTML = bars + `<rect class="play" x="0" y="0" width="2" height="${H}" fill="var(--ink)"><animate attributeName="x" from="0" to="${W}" dur="${(16*60/130).toFixed(3)}s" repeatCount="indefinite"/></rect>`;
+  };
+  const ro = new ResizeObserver(draw);
+  ro.observe(s);
+}
+</script>
+</body>
+</html>
