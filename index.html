@@ -62,9 +62,12 @@ nav .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);al
 .about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
 .edu{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
 .edu h3{font-size:30px;margin-bottom:6px}
-.edu-head{display:flex;align-items:center;gap:18px;margin-bottom:6px}
-.edu-head img{width:64px;height:auto;flex:none}
-.edu-head h3{margin:0}
+.edu{position:relative;overflow:hidden;isolation:isolate}
+.edu::after{content:"";position:absolute;z-index:-1;right:-56px;bottom:-70px;width:clamp(220px,26vw,300px);aspect-ratio:240/220;background:url(img/ua-logo.png) center/contain no-repeat;opacity:.16;transform:rotate(-12deg);transition:opacity .4s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.edu:hover::after{opacity:.32;transform:rotate(-6deg) scale(1.06)}
+.edu dl{position:relative}
+@media(prefers-reduced-motion:reduce){.edu::after{transition:none}}
+@media(max-width:600px){.edu::after{width:170px;right:-48px;bottom:-56px;opacity:.12}}
 .edu dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:10px 20px;margin:20px 0 0}
 .edu dt{color:var(--mute)}
 .edu dd{margin:0;font-weight:500}
@@ -162,7 +165,8 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
       <p class="mute">Outside of school, I produce and DJ melodic bass music under the name SINH, where I build and grow my own brand from the ground up. Classical piano and rock bands came first.</p>
     </div>
     <div class="edu">
-      <div class="edu-head"><img src="img/ua-logo.png" alt="University of Arizona logo"><div><h3>Education</h3><p class="mute" style="margin:0">University of Arizona, Eller College of Management</p></div></div>
+      <h3>Education</h3>
+      <p class="mute">University of Arizona, Eller College of Management</p>
       <dl>
         <dt>Degree</dt><dd>B.S. in Business Administration</dd>
         <dt>Major</dt><dd>Business Marketing</dd>
