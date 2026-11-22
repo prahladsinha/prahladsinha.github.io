@@ -51,7 +51,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 .btn.solid{background:var(--red);color:var(--bg)}
 .btn:hover,.btn:focus-visible{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.wave{position:relative;height:clamp(180px,24vw,300px);margin-top:44px}
+.wave{position:relative;height:clamp(120px,16vw,200px);margin-top:36px}
 .wave svg{position:absolute;inset:0;width:100%;height:100%}
 #wave .b{transform-box:fill-box;transform-origin:center;animation:kick calc(60s / 130) cubic-bezier(.15,.85,.35,1) infinite}
 #wave .hot{animation-name:kickhot}
@@ -358,7 +358,7 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
       const h = a * (H - 8) * (hot ? 0.93 : 1);
       bars += `<rect class="b${hot ? ' hot' : ''}" x="${(i * bw + bw * 0.18).toFixed(1)}" y="${(mid - h / 2).toFixed(1)}" width="${(bw * 0.64).toFixed(1)}" height="${h.toFixed(1)}" rx="${(bw * 0.3).toFixed(1)}" fill="${hot ? 'var(--red)' : 'var(--rose)'}" fill-opacity="${hot ? 1 : 0.45}"/>`;
     }
-    s.innerHTML = bars + `<rect class="play" x="0" y="0" width="2" height="${H}" fill="var(--ink)"><animate attributeName="x" from="0" to="${W}" dur="${(16*60/130).toFixed(3)}s" repeatCount="indefinite"/></rect>`;
+    s.innerHTML = bars + `<rect class="play" x="0" y="0" width="2" height="${H}" fill="var(--ink)"><animate attributeName="x" from="0" to="${W + 4}" dur="${(16*60/130).toFixed(3)}s" repeatCount="1" fill="freeze"/></rect>`;
   };
   const ro = new ResizeObserver(draw);
   ro.observe(s);
