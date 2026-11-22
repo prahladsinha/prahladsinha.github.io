@@ -72,7 +72,7 @@ nav .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);al
 .edu dt{color:var(--mute)}
 .edu dd{margin:0;font-weight:500}
 .alt{background:var(--panel)}
-.alt .skill{background:var(--bg)}
+.alt .sk{background:var(--bg)}
 .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;position:relative}
 .timeline::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line)}
 .timeline{align-items:start}
@@ -132,8 +132,38 @@ nav .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);al
 .dot{aspect-ratio:1;border-radius:50%;background:var(--red)}
 .dock{width:100%;max-width:440px;margin:0 auto;display:block}
 .skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.skill{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
-.skill h3{font-size:26px;margin-bottom:12px}
+.skills-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 40px;margin-bottom:32px}
+.skills-head h2{margin:0;font-size:clamp(48px,7vw,84px);line-height:.95}
+.skills-head p{margin:0;max-width:38ch;font-size:18px}
+.skill{display:flex}
+.sk{flex:1;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+.sk:hover{transform:translateY(-8px);border-color:var(--red);box-shadow:0 26px 50px -26px color-mix(in srgb,var(--red) 75%,transparent)}
+.art{position:relative;height:clamp(160px,15vw,190px);border-bottom:1px solid var(--line);background:radial-gradient(110% 95% at 50% 105%,color-mix(in srgb,var(--red) 26%,transparent),transparent 62%),linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 24px,#070707;background-blend-mode:normal,soft-light,normal}
+.art svg{position:absolute;inset:0;width:100%;height:100%}
+.sk .body{flex:1;display:flex;flex-direction:column;padding:24px 26px 24px}
+.sk h3{font-size:28px;margin-bottom:12px}
+.used{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--mute);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.used b{color:var(--ink);font-weight:700}
+.used b+b::before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--red);margin:0 8px 2px 0}
+.sk .tools{margin:0 0 18px}
+/* skill art motion */
+.heart{transform-box:fill-box;transform-origin:center;opacity:0;animation:float 3.2s ease-out infinite paused}
+.skill.in .heart,.no-io .heart{animation-play-state:running}
+@keyframes float{0%{opacity:0;transform:translateY(0) scale(.5)}15%{opacity:1;transform:translateY(-6px) scale(1)}100%{opacity:0;transform:translateY(-58px) scale(.85)}}
+.flowline{stroke-dasharray:3 7;animation:dash 1.1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-20}}
+.node{transition:transform .3s;transform-box:fill-box;transform-origin:center}
+.sk:hover .node{animation:bob .9s ease-in-out infinite alternate}
+.sk:hover .node:nth-of-type(2){animation-delay:.15s}.sk:hover .node:nth-of-type(3){animation-delay:.3s}.sk:hover .node:nth-of-type(4){animation-delay:.45s}
+@keyframes bob{to{transform:translateY(-5px)}}
+.bars rect{transform-box:fill-box;transform-origin:bottom;transition:transform .9s cubic-bezier(.2,.8,.2,1) calc(var(--i)*.09s + .2s)}
+.js .skill:not(.in) .bars rect{transform:scaleY(0)}
+.trend{stroke-dasharray:320;stroke-dashoffset:0;transition:stroke-dashoffset 1.3s ease .8s}
+.js .skill:not(.in) .trend{stroke-dashoffset:320}
+.enddot{transition:opacity .3s 2s}
+.js .skill:not(.in) .enddot{opacity:0}
+.sk:hover .bars rect{fill:var(--red)}
+@media(prefers-reduced-motion:reduce){.heart{animation:none;opacity:1}.flowline,.sk:hover .node{animation:none}.mover{display:none}.bars rect,.trend,.enddot{transition:none}.sk{transition:none}}
 .tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .tools span{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--mute)}
 .sinh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
@@ -321,22 +351,75 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 
 <section class="band alt" id="skills">
   <div class="wrap">
-    <h2>What I bring</h2>
+    <div class="skills-head">
+      <h2>What I bring</h2>
+      <p class="mute">Three skills I've put to work on real campaigns, from campus events to retail floors to a growing music brand.</p>
+    </div>
     <div class="skills">
       <div class="skill">
-        <h3>Social media content strategy</h3>
-        <p class="mute">Plan and create Reels, carousels and campaigns that grow audiences and drive event turnout.</p>
-        <div class="tools"><span>Canva</span><span>CapCut</span><span>Photoshop</span></div>
+        <div class="sk">
+          <div class="art"><svg viewBox="0 0 300 170" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <rect x="104" y="14" width="92" height="170" rx="14" fill="#0e0e0e" stroke="#3a3a3a" stroke-width="2"/>
+  <rect x="134" y="22" width="32" height="5" rx="2.5" fill="#2e2e2e"/>
+  <circle cx="122" cy="44" r="7" fill="var(--red)"/><rect x="134" y="40" width="40" height="5" rx="2.5" fill="#3a3a3a"/><rect x="134" y="48" width="26" height="4" rx="2" fill="#2a2a2a"/>
+  <rect x="114" y="60" width="72" height="72" rx="6" fill="#1b1b1b"/>
+  <rect x="114" y="60" width="72" height="72" rx="6" fill="url(#sg)"/>
+  <path d="M143 84 L161 96 L143 108Z" fill="#fcfcfc" opacity=".9"/>
+  <g fill="var(--red)"><g transform="translate(116 140) scale(1.1)"><path d="M0 3C0-1 5-1 5 3C5-1 10-1 10 3C10 7 5 9 5 12C5 9 0 7 0 3Z"/></g></g>
+  <rect x="134" y="141" width="36" height="5" rx="2.5" fill="#3a3a3a"/>
+  <rect x="114" y="154" width="72" height="20" rx="4" fill="#1b1b1b"/>
+  <g fill="var(--red)">
+    <g class="heart" style="animation-delay:0s"><g transform="translate(206 120) scale(1.7)"><path d="M0 3C0-1 5-1 5 3C5-1 10-1 10 3C10 7 5 9 5 12C5 9 0 7 0 3Z"/></g></g>
+    <g class="heart" style="animation-delay:.8s"><g transform="translate(224 104) scale(1.2)"><path d="M0 3C0-1 5-1 5 3C5-1 10-1 10 3C10 7 5 9 5 12C5 9 0 7 0 3Z"/></g></g>
+    <g class="heart" style="animation-delay:1.6s"><g transform="translate(210 92) scale(1.4)"><path d="M0 3C0-1 5-1 5 3C5-1 10-1 10 3C10 7 5 9 5 12C5 9 0 7 0 3Z"/></g></g>
+    <g class="heart" style="animation-delay:2.4s"><g transform="translate(232 128) scale(1)"><path d="M0 3C0-1 5-1 5 3C5-1 10-1 10 3C10 7 5 9 5 12C5 9 0 7 0 3Z"/></g></g>
+  </g>
+  <g transform="translate(36 70)"><rect width="50" height="26" rx="13" fill="#141414" stroke="#3a3a3a"/><circle cx="14" cy="13" r="5" fill="var(--red)"/><rect x="23" y="10" width="18" height="6" rx="3" fill="#a8a8a8"/></g>
+  <g transform="translate(24 108)"><rect width="62" height="26" rx="13" fill="#141414" stroke="#3a3a3a"/><path d="M11 13h14M18 6v14" stroke="var(--red)" stroke-width="3" stroke-linecap="round"/><rect x="31" y="10" width="22" height="6" rx="3" fill="#a8a8a8"/></g>
+  <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F93434" stop-opacity=".55"/><stop offset="1" stop-color="#F93434" stop-opacity="0"/></linearGradient></defs>
+</svg></div>
+          <div class="body">
+            <h3>Social Media Content Strategy</h3>
+            <p class="mute">Plan and create Reels, carousels and campaigns that grow audiences and drive event turnout.</p>
+            <div class="tools"><span>Canva</span><span>CapCut</span><span>Photoshop</span></div>
+            <div class="used">Used at <b>McGuire Center</b><b>SINH</b></div>
+          </div>
+        </div>
       </div>
       <div class="skill">
-        <h3>Email marketing and flow mapping</h3>
-        <p class="mute">Map customer journeys and build email and SMS flows, from welcome to winback, that turn leads into loyal clients.</p>
-        <div class="tools"><span>Miro</span><span>Email + SMS flows</span></div>
+        <div class="sk">
+          <div class="art"><svg viewBox="0 0 300 170" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <path id="fp" d="M42 78 H258" fill="none"/>
+  <path class="flowline" d="M42 78 H258" stroke="var(--red)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M258 101 C258 150 42 150 42 101" fill="none" stroke="#3a3a3a" stroke-width="2" stroke-dasharray="3 6"/>
+  <g class="node"><circle cx="42" cy="78" r="23" fill="#151515" stroke="var(--red)" stroke-width="2"/><g transform="translate(42 78)"><rect x="-10" y="-7" width="20" height="14" rx="2" fill="none" stroke="#fcfcfc" stroke-width="2"/><path d="M-10-6 0 2 10-6" fill="none" stroke="#fcfcfc" stroke-width="2"/></g></g><g class="node"><circle cx="114" cy="78" r="23" fill="#151515" stroke="#3a3a3a" stroke-width="2"/><g transform="translate(114 78)"><rect x="-11" y="-7" width="22" height="14" rx="2" fill="none" stroke="#fcfcfc" stroke-width="2"/><path d="M-11-2h22" stroke="#fcfcfc" stroke-width="3"/></g></g><g class="node"><circle cx="186" cy="78" r="23" fill="#151515" stroke="#3a3a3a" stroke-width="2"/><g transform="translate(186 78)"><path d="M-10-8h20a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H-2l-6 5v-5h-2a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3Z" fill="none" stroke="#fcfcfc" stroke-width="2"/></g></g><g class="node"><circle cx="258" cy="78" r="23" fill="var(--red)" stroke="var(--red)" stroke-width="2"/><g transform="translate(258 78)"><path d="M-8 0 -2 6 9-6" fill="none" stroke="#fcfcfc" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+  <circle class="mover" r="5" fill="#fcfcfc"><animateMotion dur="2.8s" repeatCount="indefinite" path="M42 78 H258"/></circle>
+  <g fill="#a8a8a8" font-family="Archivo,sans-serif" font-size="12" font-weight="700"><text x="42" y="128" text-anchor="middle">Browse</text><text x="114" y="128" text-anchor="middle">Book</text><text x="186" y="128" text-anchor="middle">Pay</text><text x="258" y="128" text-anchor="middle">Return</text></g>
+  <text x="150" y="160" text-anchor="middle" fill="#727272" font-family="Archivo,sans-serif" font-size="11">winback loop</text>
+</svg></div>
+          <div class="body">
+            <h3>Email Marketing and Flow Mapping</h3>
+            <p class="mute">Map customer journeys and build email and SMS flows, from welcome to winback, that turn leads into loyal clients.</p>
+            <div class="tools"><span>Miro</span><span>Email + SMS flows</span></div>
+            <div class="used">Used at <b>Barnyard Records</b></div>
+          </div>
+        </div>
       </div>
       <div class="skill">
-        <h3>Performance analysis</h3>
-        <p class="mute">Track content and sales metrics, then refine strategy based on what drives results.</p>
-        <div class="tools"><span>Instagram Insights</span><span>Power BI</span></div>
+        <div class="sk">
+          <div class="art"><svg viewBox="0 0 300 170" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <path d="M40 140 H288" stroke="#3a3a3a" stroke-width="2"/>
+  <g class="bars"><rect style="--i:0" x="50" y="106" width="22" height="34" rx="4" fill="#2e2e2e"/><rect style="--i:1" x="84" y="92" width="22" height="48" rx="4" fill="#2e2e2e"/><rect style="--i:2" x="118" y="98" width="22" height="42" rx="4" fill="#2e2e2e"/><rect style="--i:3" x="152" y="74" width="22" height="66" rx="4" fill="#2e2e2e"/><rect style="--i:4" x="186" y="82" width="22" height="58" rx="4" fill="#2e2e2e"/><rect style="--i:5" x="220" y="56" width="22" height="84" rx="4" fill="#2e2e2e"/><rect style="--i:6" x="254" y="40" width="22" height="100" rx="4" fill="var(--red)"/></g>
+  <polyline class="trend" points="61.0,94 95.0,80 129.0,86 163.0,62 197.0,70 231.0,44 265.0,28" fill="none" stroke="#fcfcfc" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <g class="enddot"><circle cx="265.0" cy="28" r="6" fill="#fcfcfc"/><circle cx="265.0" cy="28" r="12" fill="none" stroke="#fcfcfc" stroke-opacity=".35" stroke-width="2"/></g>
+</svg></div>
+          <div class="body">
+            <h3>Performance Analysis</h3>
+            <p class="mute">Track content and sales metrics, then refine strategy based on what drives results.</p>
+            <div class="tools"><span>Instagram Insights</span><span>Power BI</span></div>
+            <div class="used">Used at <b>McGuire Center</b><b>Techtronic Industries</b></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
