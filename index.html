@@ -4,6 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prahlad Sinha Portfolio</title>
+<meta name="description" content="Business Marketing graduate (May 2027) from the University of Arizona, open to full-time marketing roles. Social content, email and SMS flows, and in-store campaigns that move numbers.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://prahladsinha.github.io/">
+<meta property="og:title" content="Prahlad Sinha | Marketing Portfolio">
+<meta property="og:description" content="Business Marketing graduate (May 2027) from the University of Arizona, open to full-time marketing roles. Social content, email and SMS flows, and in-store campaigns that move numbers.">
+<meta property="og:image" content="https://prahladsinha.github.io/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prahlad Sinha | Marketing Portfolio">
+<meta name="twitter:description" content="Business Marketing graduate (May 2027) from the University of Arizona, open to full-time marketing roles. Social content, email and SMS flows, and in-store campaigns that move numbers.">
+<meta name="twitter:image" content="https://prahladsinha.github.io/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -47,6 +61,10 @@ nav .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);al
 .hero h1{font-size:clamp(64px,13vw,168px);line-height:.92;text-transform:uppercase}
 .hero h1 span{display:block;color:var(--red)}
 .intro{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;align-items:end;margin-top:28px}
+.open{display:inline-flex;align-items:center;gap:10px;margin:10px 0 0;padding:8px 16px 8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel);font-size:15px !important;font-weight:700}
+.open i{flex:none;width:10px;height:10px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 #3ddc8488;animation:ping 2s ease-out infinite}
+@keyframes ping{to{box-shadow:0 0 0 10px #3ddc8400}}
+@media(prefers-reduced-motion:reduce){.open i{animation:none}}
 .intro p{font-size:19px}
 .ctas{display:flex;flex-wrap:nowrap;gap:12px;justify-content:flex-end}
 .btn{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:none;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--red);transition:background .15s}
@@ -91,6 +109,11 @@ nav .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);al
 .more i::after{transform:rotate(90deg)}
 .more:hover i{background:var(--red)}
 .job.open .more i{transform:rotate(45deg);background:var(--red)}
+.lead{margin-top:clamp(36px,5vw,56px);display:grid;grid-template-columns:max-content minmax(0,1fr);gap:16px 40px;align-items:start}
+.lead-h{font-size:32px}
+.lead-job{padding-top:0}
+.lead-job::before{display:none}
+@media(max-width:900px){.lead{grid-template-columns:minmax(0,1fr)}.job.lead-job{padding-left:0}}
 .drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.8,.2,1)}
 .drawer>div{overflow:hidden}
 .job.open .drawer{grid-template-rows:1fr}
@@ -218,7 +241,10 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
   <div class="wrap">
     <div class="top"><h1>Prahlad<span>Sinha</span></h1><img class="head" src="img/headshot.jpg" alt="Prahlad Sinha in a navy suit at the Eller College of Management"></div>
     <div class="intro">
+      <div>
       <p>Business Marketing student at the University of Arizona's Eller College. I build content, email flows and in-store campaigns that move numbers, with marketing and sales experience at Techtronic Industries, Barnyard Records and the McGuire Center.</p>
+      <p class="open"><i></i>Graduating May 2027 and open to full-time marketing roles</p>
+      </div>
       <div class="ctas">
         <a class="btn solid" href="#projects">See my work</a>
         <a class="btn" href="https://prahladsinha.github.io/Prahlad_Sinha_Resume.pdf" target="_blank" rel="noopener">Resume</a>
@@ -230,7 +256,7 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
     <div class="stat"><b>+200%</b><span>Weekly combo kit sales from my promo flyers</span></div>
     <div class="stat"><b>20</b><span>Attendees at the first Wildcat Hangout through in-person and online outreach</span></div>
     <div class="stat"><b>500%+</b><span>Of daily sales average on Milwaukee Demo Day</span></div>
-    <div class="stat"><b>50K+</b><span>Monthly plays across my music as SINH</span></div>
+    <div class="stat"><b>10,000+</b><span>Books donated in one week for the Pi Beta Phi literacy drive</span></div>
   </div>
 </header>
 
@@ -246,7 +272,8 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
       <dl>
         <dt>Degree</dt><dd>B.S. in Business Administration</dd>
         <dt>Major</dt><dd>Business Marketing</dd>
-        <dt>Graduation</dt><dd>2027</dd>
+        <dt>Graduation</dt><dd>May 2027</dd>
+        <dt>GPA</dt><dd>3.64</dd>
         <dt>Hometown</dt><dd>Chicago, IL</dd>
       </dl>
     </div>
@@ -282,9 +309,20 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
           <div class="when">Summer 2026</div>
           <h3>Field Sales &amp; Marketing Intern</h3>
           <div class="org"><a href="https://www.ttigroup.com/" target="_blank" rel="noopener">Techtronic Industries</a>, Chicago</div>
-          <p class="mute">Designed promotional flyers that boosted weekly combo kit sales by 200% and led 10 merchandising initiatives that grew monthly in-store Milwaukee sales by 22%.</p>
+          <p class="mute">Supported sales, merchandising and store operations across seven regional locations, using promotional flyers and in-store merchandising to drive Milwaukee sales.</p>
           <div class="drawer" id="hl2"><div><ul><li><b>+200%</b> weekly combo kit sales from my promo flyers</li><li><b>+22%</b> monthly in-store Milwaukee sales across 10 merchandising initiatives</li><li><b>500%+</b> of the daily sales average on Milwaukee Demo Day</li><li>Pitched PRIME, a battery diagnostic dock concept, for Operation Innovation</li></ul></div></div>
           <button class="more" type="button" aria-expanded="false" aria-controls="hl2">Highlights<i aria-hidden="true"></i></button>
+        </div>
+      </article>
+    </div>
+    <div class="lead">
+      <h3 class="lead-h">Leadership</h3>
+      <article class="job lead-job">
+        <div class="card">
+          <div class="when">Nov 2023 to Nov 2025</div>
+          <h3>Marketing Chair &amp; Recruitment Chair</h3>
+          <div class="org">Zeta Psi Fraternity, Tucson</div>
+          <p class="mute">Grew event attendance through member outreach and social media, and organized networking events that kept potential new members engaged through recruitment. Also led the chapter's book drive for Pi Beta Phi Literacy.</p>
         </div>
       </article>
     </div>
