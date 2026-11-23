@@ -31,7 +31,7 @@ nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,t
 nav .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px;padding:12px max(5vw,16px);max-width:none}
 .links{justify-content:center}
 .mark{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800}
-.mono{width:36px;height:36px;border-radius:50%;background:var(--red);color:var(--ink);display:grid;place-items:center;font-family:Anton,sans-serif;font-size:16px}
+.mono{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:center 20%;border:2px solid var(--red);background:var(--red);flex:none}
 .links{display:flex;flex-wrap:wrap;gap:4px 20px;font-weight:500}
 .links a{text-decoration:none;color:var(--mute);padding:10px 0}
 .links a{transition:color .15s}
@@ -48,8 +48,8 @@ nav .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);al
 .hero h1 span{display:block;color:var(--red)}
 .intro{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;align-items:end;margin-top:28px}
 .intro p{font-size:19px}
-.ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
-.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--red);transition:background .15s}
+.ctas{display:flex;flex-wrap:nowrap;gap:12px;justify-content:flex-end}
+.btn{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:none;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--red);transition:background .15s}
 .btn.solid{background:var(--red);color:var(--bg)}
 .btn:hover,.btn:focus-visible{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 :focus-visible{outline:3px solid var(--ink);outline-offset:3px}
@@ -67,7 +67,7 @@ nav .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);al
 .edu:hover::after{opacity:.32;transform:rotate(-6deg) scale(1.06)}
 .edu dl{position:relative}
 @media(prefers-reduced-motion:reduce){.edu::after{transition:none}}
-@media(max-width:600px){.facts{grid-template-columns:minmax(0,1fr)}.facts div{gap:4px}.edu::after{width:170px;right:-48px;bottom:-56px;opacity:.12}}
+@media(max-width:600px){.ctas{gap:8px}.btn{padding:0 clamp(12px,3.6vw,20px);font-size:clamp(13.5px,3.9vw,16px);min-height:46px}.facts{grid-template-columns:minmax(0,1fr)}.facts div{gap:4px}.edu::after{width:170px;right:-48px;bottom:-56px;opacity:.12}}
 .edu dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:10px 20px;margin:20px 0 0}
 .edu dt{color:var(--mute)}
 .edu dd{margin:0;font-weight:500}
@@ -199,7 +199,7 @@ a.tag:hover,a.tag:focus-visible{background:var(--red);transform:translateY(-2px)
 footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;border-top:1px solid var(--line)}
 @media(max-width:900px){.timeline,.skills{grid-template-columns:minmax(0,1fr)}.timeline::before,.timeline::after{top:0;bottom:0;left:9px;right:auto;width:2px;height:auto;transform-origin:top}.js .timeline:not(.in)::after{transform:scaleY(0)}.job{padding:0 0 0 44px}.clist{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:760px){.top{grid-template-columns:minmax(0,1fr) 26%}.intro,.about,.proj,.sinh{grid-template-columns:minmax(0,1fr)}.ctas{justify-content:flex-start}.proj:nth-of-type(even) .viz{order:0}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
-@media(max-width:600px){nav .wrap{grid-template-columns:auto minmax(0,1fr);gap:12px;padding-top:8px;padding-bottom:8px}.mark{font-size:0;gap:0}.mono{width:32px;height:32px;font-size:14px}.links{flex-wrap:nowrap;overflow-x:auto;gap:0 clamp(8px,3vw,14px);font-size:clamp(12.5px,3.6vw,14px);scrollbar-width:none}.links::-webkit-scrollbar{display:none}.links a{white-space:nowrap;padding:12px 0}.top{grid-template-columns:minmax(0,1fr) clamp(84px,26vw,120px);gap:12px;align-items:center}.brow{grid-template-columns:6.5em minmax(0,1fr) 3.6em}.dots{gap:7px}}
+@media(max-width:600px){nav .wrap{grid-template-columns:auto minmax(0,1fr);gap:12px;padding-top:8px;padding-bottom:8px}.mark{font-size:0;gap:0}.mono{width:34px;height:34px}.links{flex-wrap:nowrap;overflow-x:auto;gap:0 clamp(8px,3vw,14px);font-size:clamp(12.5px,3.6vw,14px);scrollbar-width:none}.links::-webkit-scrollbar{display:none}.links{justify-content:flex-start}.links a{white-space:nowrap;padding:12px 0;flex:none}.top{grid-template-columns:minmax(0,1fr) clamp(84px,26vw,120px);gap:12px;align-items:center}.brow{grid-template-columns:6.5em minmax(0,1fr) 3.6em}.dots{gap:7px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -207,7 +207,7 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
 <body>
 <nav aria-label="Main">
   <div class="wrap">
-    <a class="mark" href="#top"><span class="mono">PS</span>Prahlad Sinha</a>
+    <a class="mark" href="#top"><img class="mono" src="img/headshot.jpg" alt="">Prahlad Sinha</a>
     <div class="links">
       <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a><a href="https://prahladsinha.github.io/Prahlad_Sinha_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
