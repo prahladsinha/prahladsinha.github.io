@@ -119,6 +119,10 @@ a.tag:hover,a.tag:focus-visible{background:var(--red);transform:translateY(-2px)
 .proj h3{font-size:clamp(30px,3.4vw,40px);margin-bottom:14px}
 .result{margin-top:16px;font-weight:700;color:var(--ink);border-left:3px solid var(--red);padding-left:14px}
 .viz{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,3vw,32px);min-height:280px;display:flex;flex-direction:column;justify-content:center}
+.bigs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:22px}
+.bigs b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(40px,5vw,60px);line-height:1;color:var(--red);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bigs span{color:var(--mute);font-size:15px}
+.shelf{width:100%;height:auto;max-height:110px}
 .viz-cap{font-size:14px;color:var(--mute);margin-top:14px}
 .flow{display:flex;flex-direction:column;gap:0}
 .step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:center}
@@ -150,7 +154,16 @@ a.tag:hover,a.tag:focus-visible{background:var(--red);transform:translateY(-2px)
 .used{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--mute);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
 .used b,.used a{color:var(--ink);font-weight:700}
 .used>*+*::before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--red);margin:0 8px 2px 0}
-.sk .tools{margin:0 0 18px}
+.toolkit{margin-top:24px;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:max-content minmax(0,1fr);gap:20px 40px;align-items:start}
+.toolkit h3{font-size:32px}
+.kgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px 28px}
+.kg h4{margin:0 0 10px;font-size:14px;font-weight:700;color:var(--red)}
+.kt{display:flex;flex-wrap:wrap;gap:8px}
+.kt span{font-size:14px;font-weight:500;border:1px solid var(--line);border-radius:999px;padding:6px 13px;transition:border-color .2s,background .2s,transform .2s}
+.kt span:hover{border-color:var(--red);background:color-mix(in srgb,var(--red) 18%,transparent);transform:translateY(-2px)}
+.sk p.mute{margin-bottom:18px}
+@media(max-width:1000px){.toolkit{grid-template-columns:minmax(0,1fr)}.kgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.kgrid{grid-template-columns:minmax(0,1fr)}}
 /* skill art motion */
 .heart{transform-box:fill-box;transform-origin:center;opacity:0;animation:float 3.2s ease-out infinite paused}
 .skill.in .heart,.no-io .heart{animation-play-state:running}
@@ -247,10 +260,10 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
       <article class="job">
         <div class="card">
           <div class="when">Fall 2025</div>
-          <h3>Social Media Coordinator</h3>
+          <h3>Business Consultant &amp; Social Media Coordinator</h3>
           <div class="org"><a href="https://eller.arizona.edu/departments-research/centers-labs/entrepreneurship" target="_blank" rel="noopener">McGuire Center for Entrepreneurship</a></div>
           <p class="mute">Tracked social metrics to refine content and boost engagement, led weekly campus tabling events, and connected student entrepreneurs with university resources.</p>
-          <div class="drawer" id="hl0"><div><ul><li>Launched the first-ever Wildcat Hangout for Entrepreneurs, bringing in <b>20 attendees</b></li><li>Paired social campaigns with in-person tabling to turn interest into turnout</li><li>Used social metrics to decide what content to make next</li></ul><div class="chips"><span>Social content</span><span>Event marketing</span><span>Instagram Insights</span><span>Canva</span></div></div></div>
+          <div class="drawer" id="hl0"><div><ul><li>Launched the first-ever Wildcat Hangout for Entrepreneurs, bringing in <b>20 attendees</b></li><li>Paired social campaigns with in-person tabling to turn interest into turnout</li><li>Used social metrics to decide what content to make next</li></ul></div></div>
           <button class="more" type="button" aria-expanded="false" aria-controls="hl0">Highlights<i aria-hidden="true"></i></button>
         </div>
       </article>
@@ -260,7 +273,7 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
           <h3>Marketing &amp; Operations Intern</h3>
           <div class="org"><a href="https://barnyardrecs.com/" target="_blank" rel="noopener">Barnyard Records</a>, Los Angeles</div>
           <p class="mute">Restructured email and SMS flows to improve client conversions, and visually mapped customer and business workflows to streamline internal processes.</p>
-          <div class="drawer" id="hl1"><div><ul><li>Built a top-to-bottom <b>user acquisition flowchart</b>, from browsing to post-session follow-up</li><li>Found drop-off points and missing touchpoints in the funnel</li><li>Rebuilt email and SMS sequences around those gaps to nurture new users and bring past clients back</li></ul><div class="chips"><span>Funnel mapping</span><span>Email + SMS</span><span>Miro</span></div></div></div>
+          <div class="drawer" id="hl1"><div><ul><li>Built a top-to-bottom <b>user acquisition flowchart</b>, from browsing to post-session follow-up</li><li>Found drop-off points and missing touchpoints in the funnel</li><li>Rebuilt email and SMS sequences around those gaps to nurture new users and bring past clients back</li></ul></div></div>
           <button class="more" type="button" aria-expanded="false" aria-controls="hl1">Highlights<i aria-hidden="true"></i></button>
         </div>
       </article>
@@ -270,7 +283,7 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
           <h3>Field Sales &amp; Marketing Intern</h3>
           <div class="org"><a href="https://www.ttigroup.com/" target="_blank" rel="noopener">Techtronic Industries</a>, Chicago</div>
           <p class="mute">Designed promotional flyers that boosted weekly combo kit sales by 200% and led 10 merchandising initiatives that grew monthly in-store Milwaukee sales by 22%.</p>
-          <div class="drawer" id="hl2"><div><ul><li><b>+200%</b> weekly combo kit sales from my promo flyers</li><li><b>+22%</b> monthly in-store Milwaukee sales across 10 merchandising initiatives</li><li><b>500%+</b> of the daily sales average on Milwaukee Demo Day</li><li>Pitched PRIME, a battery diagnostic dock concept, for Operation Innovation</li></ul><div class="chips"><span>Field sales</span><span>Merchandising</span><span>Flyer design</span><span>Product pitching</span></div></div></div>
+          <div class="drawer" id="hl2"><div><ul><li><b>+200%</b> weekly combo kit sales from my promo flyers</li><li><b>+22%</b> monthly in-store Milwaukee sales across 10 merchandising initiatives</li><li><b>500%+</b> of the daily sales average on Milwaukee Demo Day</li><li>Pitched PRIME, a battery diagnostic dock concept, for Operation Innovation</li></ul></div></div>
           <button class="more" type="button" aria-expanded="false" aria-controls="hl2">Highlights<i aria-hidden="true"></i></button>
         </div>
       </article>
@@ -352,6 +365,20 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
         <div class="viz-cap">Concept illustration</div>
       </div>
     </article>
+
+    <article class="proj">
+      <div>
+        <span class="tag">Zeta Psi Philanthropy</span>
+        <h3>Pi Beta Phi Literacy Book Drive</h3>
+        <p class="mute">As Zeta Psi's lead philanthropy organizer, I sourced large-scale book donations through Facebook Marketplace, Goodwill and local stores for Pi Beta Phi's literacy philanthropy.</p>
+        <p class="result">In one week we donated over 10,000 books and $5,000, leading in individual contribution.</p>
+      </div>
+      <div class="viz" aria-label="10,000+ books and $5,000 donated in one week">
+        <div class="bigs"><div><b>10,000+</b><span>books donated</span></div><div><b>$5,000</b><span>raised</span></div></div>
+        <svg class="shelf" viewBox="0 0 264 86" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><rect x="10" y="22" width="16" height="58" rx="2" fill="var(--red)"/><rect x="28" y="14" width="12" height="66" rx="2" fill="#3a3a3a"/><rect x="42" y="28" width="18" height="52" rx="2" fill="var(--rose)"/><rect x="62" y="18" width="10" height="62" rx="2" fill="#2a2a2a"/><rect x="74" y="24" width="16" height="56" rx="2" fill="var(--red)"/><rect x="92" y="10" width="14" height="70" rx="2" fill="#3a3a3a"/><rect x="108" y="26" width="18" height="54" rx="2" fill="#f4ece6"/><rect x="128" y="16" width="12" height="64" rx="2" fill="var(--red)"/><rect x="142" y="22" width="16" height="58" rx="2" fill="#2a2a2a"/><rect x="160" y="12" width="14" height="68" rx="2" fill="var(--rose)"/><rect x="176" y="26" width="18" height="54" rx="2" fill="#3a3a3a"/><rect x="196" y="18" width="12" height="62" rx="2" fill="var(--red)"/><rect x="210" y="22" width="16" height="58" rx="2" fill="#f4ece6"/><rect x="228" y="14" width="14" height="66" rx="2" fill="#2a2a2a"/><rect x="244" y="24" width="18" height="56" rx="2" fill="var(--red)"/><rect x="0" y="80" width="264" height="5" rx="2" fill="#3a3a3a"/></svg>
+        <div class="viz-cap">One week of collection, fall 2025</div>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -387,7 +414,6 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
           <div class="body">
             <h3>Social Media Content Strategy</h3>
             <p class="mute">Plan and create Reels, carousels and campaigns that grow audiences and drive event turnout.</p>
-            <div class="tools"><span>Canva</span><span>CapCut</span><span>Photoshop</span></div>
             <div class="used">Used at <a href="https://eller.arizona.edu/departments-research/centers-labs/entrepreneurship" target="_blank" rel="noopener">McGuire Center</a><b>SINH</b></div>
           </div>
         </div>
@@ -406,7 +432,6 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
           <div class="body">
             <h3>Email Marketing and Flow Mapping</h3>
             <p class="mute">Map customer journeys and build email and SMS flows, from welcome to winback, that turn leads into loyal clients.</p>
-            <div class="tools"><span>Miro</span><span>Email + SMS flows</span></div>
             <div class="used">Used at <a href="https://barnyardrecs.com/" target="_blank" rel="noopener">Barnyard Records</a></div>
           </div>
         </div>
@@ -422,11 +447,14 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
           <div class="body">
             <h3>Performance Analysis</h3>
             <p class="mute">Track content and sales metrics, then refine strategy based on what drives results.</p>
-            <div class="tools"><span>Instagram Insights</span><span>Power BI</span></div>
             <div class="used">Used at <a href="https://eller.arizona.edu/departments-research/centers-labs/entrepreneurship" target="_blank" rel="noopener">McGuire Center</a><a href="https://www.ttigroup.com/" target="_blank" rel="noopener">Techtronic Industries</a></div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="toolkit">
+      <h3>Toolkit</h3>
+      <div class="kgrid"><div class="kg"><h4>Design &amp; content</h4><div class="kt"><span>Adobe Photoshop</span><span>Canva</span><span>CapCut</span></div></div><div class="kg"><h4>Social</h4><div class="kt"><span>Sprout Social</span><span>Post-Bridge</span><span>Instagram Insights</span></div></div><div class="kg"><h4>Email &amp; CRM</h4><div class="kt"><span>Klaviyo</span><span>Laylo</span></div></div><div class="kg"><h4>Planning &amp; data</h4><div class="kt"><span>Miro</span><span>Power BI</span></div></div></div>
     </div>
   </div>
 </section>
@@ -477,7 +505,7 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
   }));
 
   // Scroll reveal
-  const sel = 'section h2, .about > div, .edu, .stat, .job, .proj > *, .skill, .sinh > div, .clist > *, .contact h2';
+  const sel = 'section h2, .about > div, .edu, .stat, .job, .proj > *, .skill, .toolkit, .sinh > div, .clist > *, .contact h2';
   const targets = [...document.querySelectorAll(sel)];
   targets.forEach(el => {
     el.classList.add('rv');
@@ -493,14 +521,14 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
   [...targets, tl].forEach(el => rio.observe(el));
 
   // Count-up numbers when they scroll into view
-  const nums = document.querySelectorAll('.stat b, .facts b');
+  const nums = document.querySelectorAll('.stat b, .facts b, .bigs b');
   const run = el => {
-    const m = el.textContent.match(/^([^\d]*)(\d+)(.*)$/);
+    const m = el.textContent.match(/^([^\d]*)([\d,]+)(.*)$/);
     if (!m || reduce) return;
-    const [, pre, val, post] = m, target = +val, t0 = performance.now(), d = 1400;
+    const [, pre, val, post] = m, target = +val.replace(/,/g, ''), t0 = performance.now(), d = 1400;
     const tick = t => {
       const p = Math.min(1, (t - t0) / d), k = 1 - Math.pow(1 - p, 3);
-      el.textContent = pre + Math.round(target * k) + post;
+      el.textContent = pre + Math.round(target * k).toLocaleString('en-US') + post;
       if (p < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
