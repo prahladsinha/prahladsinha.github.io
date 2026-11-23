@@ -67,7 +67,7 @@ nav .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);al
 .edu:hover::after{opacity:.32;transform:rotate(-6deg) scale(1.06)}
 .edu dl{position:relative}
 @media(prefers-reduced-motion:reduce){.edu::after{transition:none}}
-@media(max-width:600px){.edu::after{width:170px;right:-48px;bottom:-56px;opacity:.12}}
+@media(max-width:600px){.facts{grid-template-columns:minmax(0,1fr)}.facts div{gap:4px}.edu::after{width:170px;right:-48px;bottom:-56px;opacity:.12}}
 .edu dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:10px 20px;margin:20px 0 0}
 .edu dt{color:var(--mute)}
 .edu dd{margin:0;font-weight:500}
@@ -173,12 +173,12 @@ a.tag:hover,a.tag:focus-visible{background:var(--red);transform:translateY(-2px)
 .tools span{font-size:14px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--mute)}
 .sinh{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
 .sinh .big{font-family:Anton,sans-serif;font-size:clamp(96px,16vw,200px);line-height:.85;color:var(--red)}
-.facts{display:grid;gap:14px;margin-top:20px}
-.facts div{display:grid;grid-template-columns:clamp(110px,10vw,150px) minmax(0,1fr);gap:16px;align-items:baseline;border-top:1px solid var(--line);padding-top:14px}
+.facts{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:28px;row-gap:14px;margin-top:20px}
+.facts div{display:grid;grid-column:1/-1;grid-template-columns:subgrid;gap:16px;align-items:baseline;border-top:1px solid var(--line);padding-top:14px}
 .facts b{font-family:Anton,sans-serif;font-weight:400;font-size:30px;color:var(--ink);white-space:nowrap}
 .contact{background:var(--red);color:var(--bg)}
 .contact h2{font-size:clamp(56px,10vw,128px);text-transform:uppercase;line-height:.92;margin-bottom:32px}
-.clist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.clist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .clist a,.clist div{display:block;background:var(--bg);color:var(--ink);border-radius:14px;padding:20px 22px;text-decoration:none;min-height:44px}
 .clist small{display:block;color:var(--mute);font-size:14px;margin-bottom:4px}
 .clist strong{overflow-wrap:anywhere;font-size:17px}
@@ -196,7 +196,7 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
   <div class="wrap">
     <a class="mark" href="#top"><span class="mono">PS</span>Prahlad Sinha</a>
     <div class="links">
-      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a><a href="https://prahladsinha.github.io/Prahlad_Sinha_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </div>
 </nav>
@@ -208,6 +208,7 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
       <p>Business Marketing student at the University of Arizona's Eller College. I build content, email flows and in-store campaigns that move numbers, and I grow my own music brand, SINH, from the ground up.</p>
       <div class="ctas">
         <a class="btn solid" href="#projects">See my work</a>
+        <a class="btn" href="https://prahladsinha.github.io/Prahlad_Sinha_Resume.pdf" target="_blank" rel="noopener">Resume</a>
         <a class="btn" href="https://www.linkedin.com/in/prahladsinha/">LinkedIn</a>
       </div>
     </div>
@@ -454,6 +455,7 @@ footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;
     <div class="clist">
       <a href="mailto:prahladsinha2@gmail.com"><small>Email</small><strong>prahladsinha2@gmail.com</strong></a>
       <a href="https://www.linkedin.com/in/prahladsinha/"><small>LinkedIn</small><strong>linkedin.com/in/prahladsinha</strong></a>
+      <a href="https://prahladsinha.github.io/Prahlad_Sinha_Resume.pdf" target="_blank" rel="noopener"><small>Resume</small><strong>View or download PDF</strong></a>
     </div>
   </div>
 </section>
