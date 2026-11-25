@@ -286,8 +286,8 @@ h1,h2,h3,.stat b,.bigs b,.facts b{text-shadow:none}
 .hero::before,.hero::after,.top::after{display:none}
 .top{grid-template-columns:minmax(0,1fr) clamp(240px,36vw,480px);align-items:end}
 .scene{display:block;width:100%;height:auto;overflow:hidden}
-.grow{transform-box:fill-box;transform-origin:50% 100%;animation:grow 1.1s cubic-bezier(.2,.8,.2,1) .4s both}
-@keyframes grow{from{transform:scaleY(0)}}
+.grow{transform-box:fill-box;transform-origin:50% 100%;animation:grow 1.8s cubic-bezier(.22,1,.36,1) .3s both}
+@keyframes grow{from{clip-path:inset(100% -10% 0 -10%);transform:translateY(14%)}to{clip-path:inset(-10% -10% 0 -10%);transform:none}}
 @media(prefers-reduced-motion:reduce){.grow{animation:none}}
 @media(max-width:760px){.top{grid-template-columns:minmax(0,1fr)}.scene{max-width:400px;margin-top:8px}}
 @media(max-width:760px){.hero::before{width:min(58vw,360px);height:clamp(150px,34vw,220px);top:10px}.hero::after{width:clamp(56px,12vw,80px);right:calc(min(58vw,360px) * .62);top:24px}.top::after{height:clamp(80px,18vw,120px);right:calc(min(58vw,360px) - clamp(44px,10vw,64px));top:calc(10px + clamp(150px,34vw,220px) - clamp(80px,18vw,120px))}}
