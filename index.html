@@ -287,6 +287,9 @@ h1,h2,h3,.stat b,.bigs b,.facts b{text-shadow:none}
 .scene{display:block;width:100%;height:auto;overflow:hidden}
 .grow{will-change:transform}
 .timeline{align-items:stretch}
+.stripe{fill:#0C234B;opacity:0;animation:stripein .5s ease-out forwards}
+@keyframes stripein{to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.stripe{opacity:1;animation:none}}
 .based{margin:14px 0 0;font-weight:700;font-size:clamp(15px,1.6vw,20px);letter-spacing:.01em}
 nav{background:var(--bg);backdrop-filter:none;-webkit-backdrop-filter:none}
 nav::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:100vh;background:var(--bg);pointer-events:none}
@@ -314,6 +317,7 @@ nav::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:100vh
     <div class="top"><div><h1>Prahlad<span>Sinha</span></h1><p class="based">Chicago, IL</p></div><svg class="scene" viewBox="0 0 400 300" role="img" aria-label="Prahlad Sinha's headshot as the sun over striped Arizona mountains and a saguaro">
       <defs>
         <pattern id="stripes" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="6" fill="#0C234B"/></pattern>
+        <clipPath id="mclip"><use href="#mtn"/></clipPath>
         <clipPath id="sun"><circle cx="248" cy="156" r="70"/></clipPath>
         <path id="mtn" d="M-10 310V238Q40 230 72 224L188 186Q197 182 206 187L282 230Q302 221 320 219Q332 218 344 224L410 252V310Z"/>
         <path id="cac" d="M42 204V32a10 10 0 0 1 20 0v172ZM42 122H26a12 12 0 0 1-12-12V72a8 8 0 0 1 16 0v34h12ZM62 104h16V64a8 8 0 0 1 16 0v40a12 12 0 0 1-12 12H62Z"/>
@@ -321,7 +325,7 @@ nav::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:100vh
             <g id="sunset" clip-path="url(#sun)"><circle cx="248" cy="156" r="71" fill="#f5423a"/>
       <image href="img/headshot.jpg" x="133" y="62" width="230" height="230" preserveAspectRatio="xMidYMid slice"/></g>
       <use href="#mtn" fill="#faf6ee" stroke="#faf6ee" stroke-width="8" stroke-linejoin="round"/>
-      <use href="#mtn" fill="url(#stripes)"/>
+      <g clip-path="url(#mclip)"><rect class="stripe" x="-10" y="300" width="420" height="6" style="animation-delay:0.00s"/><rect class="stripe" x="-10" y="290" width="420" height="6" style="animation-delay:0.06s"/><rect class="stripe" x="-10" y="280" width="420" height="6" style="animation-delay:0.12s"/><rect class="stripe" x="-10" y="270" width="420" height="6" style="animation-delay:0.18s"/><rect class="stripe" x="-10" y="260" width="420" height="6" style="animation-delay:0.24s"/><rect class="stripe" x="-10" y="250" width="420" height="6" style="animation-delay:0.30s"/><rect class="stripe" x="-10" y="240" width="420" height="6" style="animation-delay:0.36s"/><rect class="stripe" x="-10" y="230" width="420" height="6" style="animation-delay:0.42s"/><rect class="stripe" x="-10" y="220" width="420" height="6" style="animation-delay:0.48s"/><rect class="stripe" x="-10" y="210" width="420" height="6" style="animation-delay:0.54s"/><rect class="stripe" x="-10" y="200" width="420" height="6" style="animation-delay:0.60s"/><rect class="stripe" x="-10" y="190" width="420" height="6" style="animation-delay:0.66s"/><rect class="stripe" x="-10" y="180" width="420" height="6" style="animation-delay:0.72s"/></g>
       <g transform="translate(0 98)"><g class="grow" id="cactus"><use href="#cac" fill="none" stroke="#faf6ee" stroke-width="9" stroke-linejoin="round"/><use href="#cac" fill="#6f9a3a"/></g></g>
     </svg></div>
     <div class="intro">
