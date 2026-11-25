@@ -633,7 +633,7 @@ h1,h2,h3,.stat b,.bigs b,.facts b{text-shadow:none}
     set();
     const cac = document.getElementById('cactus');
     const ease = k => 1 - Math.pow(1 - k, 3);
-    const t0 = performance.now() + 700, D = 1800, c0 = performance.now() + 250, CD = 1100;
+    const t0 = performance.now() + 700, D = 1800, c0 = t0, CD = D;
     const back = k => 1 + 2.7 * Math.pow(k - 1, 3) + 1.7 * Math.pow(k - 1, 2);
     const grow = s => cac.setAttribute('transform', 'translate(52 204) scale(' + s.toFixed(4) + ') translate(-52 -204)');
     const rise = now => {
