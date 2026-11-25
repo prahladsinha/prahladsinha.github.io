@@ -209,6 +209,8 @@ body,button{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helve
 .cm{margin:0 0 6px;font-size:15px}
 .cm b{margin-right:6px;color:var(--mute);font-weight:600}
 .grid .txt span{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.toast{position:fixed;z-index:60;left:50%;bottom:84px;translate:-50% 20px;opacity:0;pointer-events:none;background:#F5F5F5;color:#0C1014;font-weight:600;font-size:15px;padding:10px 16px;border-radius:10px;transition:opacity .2s,translate .2s;white-space:nowrap}
+.toast.on{opacity:1;translate:-50% 0}
 /* Instagram-style dark mode */
 :root{color-scheme:dark;--bg:#0C1014;--card:#16191E;--line:#262A30;--ink:#F5F5F5;--mute:#A8A8A8}
 .side .logo img,.mlogo img{filter:invert(1)}
@@ -288,6 +290,8 @@ body,button{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helve
 
 <div class="pmodal" id="pmodal" role="dialog" aria-modal="true" aria-label="Post"><div class="pbox"><button class="pclose" id="pclose" aria-label="Close">&times;</button><div id="pslot"></div></div></div>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Job story">
   <div class="frame" id="frame">
     <div class="bars" id="bars"></div>
@@ -333,7 +337,7 @@ const POSTS = [
   {id:'hangout', org:'McGuire Center', sub:'Wildcat Hangout launch', imgs:['img/tabling.jpg','img/hangout.jpg','img/storyboard.jpg'], alt:'Wildcat Hangout for Entrepreneurs',
    result:'<b>20</b> attendees at the first event',
    cap:'To launch the first Wildcat Hangout for Entrepreneurs, I posted on social media and tabled across campus, pitching the event to students face to face.', tags:'#events #campus'},
-  {id:'prime', org:'Techtronic Industries', sub:'PRIME concept pitch', text:'Don\u2019t Guess. Build.', imgs:['img/prime-mockup.jpg'], alt:'Concept mockup of the PRIME battery diagnostic dock',
+  {id:'prime', org:'Techtronic Industries', sub:'PRIME concept pitch', imgs:['img/prime-mockup.jpg'], alt:'Concept mockup of the PRIME battery diagnostic dock',
    result:'Concept only, pitched for Operation Innovation',
    cap:'PRIME was a product idea I pitched for TTI\'s Operation Innovation: a dock that checks the health of Ryobi ONE+ batteries. It stayed a concept. I built out the name, the pricing justification, the pitch script and the slogan. The mockup is my own illustration.', tags:'#product #pitch'},
   {id:'book-drive', org:'Zeta Psi', sub:'Pi Beta Phi literacy drive', imgs:['img/bookdrive.jpg'], alt:'Truck loaded with donated books',
@@ -433,6 +437,17 @@ addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') next();
   if (e.key === 'ArrowLeft') prev();
 });
+}
+
+// email: copy address too, since mailto does nothing without a mail app set up
+{
+  const EMAIL = 'prahladsinha2@gmail.com', toast = document.getElementById('toast');
+  let tt;
+  const show = msg => { toast.textContent = msg; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 2600); };
+  document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.addEventListener('click', () => {
+    const done = () => show('Email copied: ' + EMAIL);
+    try { navigator.clipboard.writeText(EMAIL).then(done, () => show(EMAIL)); } catch (err) { show(EMAIL); }
+  }));
 }
 </script>
 </body>
