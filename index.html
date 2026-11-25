@@ -286,9 +286,7 @@ h1,h2,h3,.stat b,.bigs b,.facts b{text-shadow:none}
 .hero::before,.hero::after,.top::after{display:none}
 .top{grid-template-columns:minmax(0,1fr) clamp(240px,36vw,480px);align-items:end}
 .scene{display:block;width:100%;height:auto;overflow:hidden}
-.grow{transform-box:fill-box;transform-origin:50% 100%;animation:grow 1.8s cubic-bezier(.22,1,.36,1) .3s both}
-@keyframes grow{from{clip-path:inset(100% -10% 0 -10%);transform:translateY(14%)}to{clip-path:inset(-10% -10% 0 -10%);transform:none}}
-@media(prefers-reduced-motion:reduce){.grow{animation:none}}
+.grow{will-change:transform}
 @media(max-width:760px){.top{grid-template-columns:minmax(0,1fr)}.scene{max-width:400px;margin-top:8px}}
 @media(max-width:760px){.hero::before{width:min(58vw,360px);height:clamp(150px,34vw,220px);top:10px}.hero::after{width:clamp(56px,12vw,80px);right:calc(min(58vw,360px) * .62);top:24px}.top::after{height:clamp(80px,18vw,120px);right:calc(min(58vw,360px) - clamp(44px,10vw,64px));top:calc(10px + clamp(150px,34vw,220px) - clamp(80px,18vw,120px))}}
 .say{font-family:Anton,Impact,sans-serif;font-size:clamp(40px,5vw,64px);line-height:1;margin:0;max-width:none}
@@ -318,7 +316,7 @@ h1,h2,h3,.stat b,.bigs b,.facts b{text-shadow:none}
       <image href="img/headshot.jpg" x="133" y="62" width="230" height="230" preserveAspectRatio="xMidYMid slice"/></g>
       <use href="#mtn" fill="#faf6ee" stroke="#faf6ee" stroke-width="8" stroke-linejoin="round"/>
       <use href="#mtn" fill="url(#stripes)"/>
-      <g transform="translate(0 98)"><g class="grow"><use href="#cac" fill="none" stroke="#faf6ee" stroke-width="9" stroke-linejoin="round"/><use href="#cac" fill="#6f9a3a"/></g></g>
+      <g transform="translate(0 98)"><g class="grow" id="cactus"><use href="#cac" fill="none" stroke="#faf6ee" stroke-width="9" stroke-linejoin="round"/><use href="#cac" fill="#6f9a3a"/></g></g>
     </svg></div>
     <div class="intro">
       <div>
@@ -633,13 +631,18 @@ h1,h2,h3,.stat b,.bigs b,.facts b{text-shadow:none}
     };
     addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(set); } }, {passive: true});
     set();
-    const t0 = performance.now() + 700, D = 1800;
+    const cac = document.getElementById('cactus');
+    const ease = k => 1 - Math.pow(1 - k, 3);
+    const t0 = performance.now() + 700, D = 1800, c0 = performance.now() + 250, CD = 1600;
     const rise = now => {
       const k = Math.min(1, Math.max(0, (now - t0) / D));
-      intro = Math.pow(1 - k, 3);
+      const c = Math.min(1, Math.max(0, (now - c0) / CD));
+      intro = 1 - ease(k);
+      cac.setAttribute('transform', 'translate(0 ' + ((1 - ease(c)) * 215).toFixed(2) + ')');
       set();
-      if (k < 1) requestAnimationFrame(rise);
+      if (k < 1 || c < 1) requestAnimationFrame(rise);
     };
+    cac.setAttribute('transform', 'translate(0 215)');
     requestAnimationFrame(rise);
   }
 }
