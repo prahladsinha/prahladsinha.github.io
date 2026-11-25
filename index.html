@@ -61,10 +61,9 @@ nav .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);al
 .hero h1{font-size:clamp(64px,13vw,168px);line-height:.92;text-transform:uppercase}
 .hero h1 span{display:block;color:var(--red)}
 .intro{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;align-items:end;margin-top:28px}
-.open{display:inline-flex;align-items:center;gap:10px;margin:10px 0 0;padding:8px 16px 8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel);font-size:15px !important;font-weight:700}
-.open i{flex:none;width:10px;height:10px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 #3ddc8488;animation:ping 2s ease-out infinite}
+
 @keyframes ping{to{box-shadow:0 0 0 10px #3ddc8400}}
-@media(prefers-reduced-motion:reduce){.open i{animation:none}}
+
 .intro p{font-size:19px}
 .ctas{display:flex;flex-wrap:nowrap;gap:12px;justify-content:flex-end}
 .btn{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:none;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--red);transition:background .15s}
@@ -240,7 +239,7 @@ h1,h2,h3{text-shadow:2px 2px 0 color-mix(in srgb,var(--red) 55%,transparent)}
 .head{border:3px solid var(--ink);box-shadow:6px 6px 0 var(--red)}
 .mono{border-color:var(--ink)}
 .flowimg{background:var(--paper);filter:none}
-.open{background:var(--paper);border:1.5px solid var(--ink)}
+
 .btn{border-color:var(--ink);color:var(--ink)}
 .btn.solid{background:var(--red);border-color:var(--ink);color:var(--ink);box-shadow:3px 3px 0 var(--ink)}
 .btn:hover,.btn:focus-visible{background:var(--ink);border-color:var(--ink);color:var(--paper)}
