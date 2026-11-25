@@ -200,6 +200,14 @@ body,button{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helve
 @media(min-width:861px){.stats{gap:6px 40px;margin:18px 0 16px}.stats p,.stats b{font-size:17px}}
 .stats{flex-wrap:nowrap}
 @media(min-width:861px){.prof{grid-template-columns:clamp(150px,20vw,240px) minmax(0,1fr);column-gap:clamp(20px,3vw,40px)}.avatar{width:clamp(120px,15vw,168px)}.stats{gap:clamp(14px,2.6vw,40px)}.stats p,.stats b{font-size:clamp(14px,1.5vw,17px)}}
+.why{margin:-6px 0 0;padding:0 14px 0 34px;display:grid;gap:6px}
+.why li{padding-left:2px}
+.why li::marker{color:var(--red)}
+.cap.tagline{padding-top:8px}
+.cmts{border-top:1px solid var(--line);margin:0 14px;padding:12px 0 16px}
+.cmts .ch{margin:0 0 8px;font-size:13px;color:var(--mute);font-weight:600}
+.cm{margin:0 0 6px;font-size:15px}
+.cm b{margin-right:6px;color:var(--mute);font-weight:600}
 /* Instagram-style dark mode */
 :root{color-scheme:dark;--bg:#0C1014;--card:#16191E;--line:#262A30;--ink:#F5F5F5;--mute:#A8A8A8}
 .side .logo img,.mlogo img{filter:invert(1)}
@@ -312,7 +320,9 @@ const STORIES = [
 const POSTS = [
   {id:'byr-carousel', org:'Barnyard Records', sub:'Instagram carousel · Aug 2026', imgs:[1,2,3,4,5].map(n=>'img/byr-carousel-'+n+'.jpg'), alt:'BYR production tip carousel slide',
    counts:{heart:'851', chat:'17', repost:'20', share:'426'},
-   cap:'One of the production tip carousels I made for BYR\'s Instagram. I came up with the idea, found the visuals, wrote the captions and scheduled it. The comments filled up with producers asking follow-up questions.', tags:'#socialcontent #instagram'},
+   cap:'One of the production tip carousels I made for BYR\'s Instagram. I came up with the idea, found the visuals, wrote the caption and scheduled it. What drove the engagement:', tags:'#socialcontent #instagram',
+   why:['A tip producers could try the same day, shown step by step with real Serum screenshots','Meme visuals that made it fun to swipe through and worth saving','A question in the caption (\u201cIs this the best crunchy white noise method??\u201d) that got producers sharing their own methods in the comments'],
+   comments:['Thanks will try today','I learn better watching something I suppose but saving this \ud83e\udd0c','do y\u2019all group your sub in a chain with your bass sounds or leave it on its own?']},
   {id:'flowchart', org:'Barnyard Records', sub:'Email and SMS flows', imgs:['img/byr-flowchart.jpg'], alt:'BYR user acquisition flowchart, details blurred', fit:'contain',
    result:'Rebuilt the email and SMS sequences',
    cap:'Mapped BYR\'s whole funnel in Miro, from first touch to winback. It showed where clients dropped off, so I rebuilt the email and SMS sequences around those gaps. Details blurred to keep client info confidential.', tags:'#email #sms #funnel'},
@@ -342,7 +352,9 @@ feed.innerHTML = POSTS.map(p => {
     ? '<div class="acts"><span class="heart">' + ICON.heart + p.counts.heart + '</span><span>' + ICON.chat + p.counts.chat + '</span><span>' + ICON.repost + p.counts.repost + '</span><span>' + ICON.share + p.counts.share + ' shares</span></div>'
     : '<p class="result">' + p.result + '</p>';
   return '<article class="post" id="' + p.id + '"><div class="ph"><i></i><div><b>' + p.org + '</b><small>' + p.sub + '</small></div></div>' +
-    media + acts + '<p class="cap"><b>Prahlad Sinha</b>' + p.cap + ' <span class="tags">' + p.tags + '</span></p></article>';
+    media + acts + '<p class="cap"><b>Prahlad Sinha</b>' + p.cap + (p.why ? '' : ' <span class="tags">' + p.tags + '</span>') + '</p>' +
+    (p.why ? '<ul class="why">' + p.why.map(w => '<li>' + w + '</li>').join('') + '</ul><p class="cap tagline"><span class="tags">' + p.tags + '</span></p>' : '') +
+    (p.comments ? '<div class="cmts"><p class="ch">From the comments</p>' + p.comments.map(c => '<p class="cm"><b>producer</b>' + c + '</p>').join('') + '</div>' : '') + '</article>';
 }).join('');
 
 grid.innerHTML = POSTS.map(p => p.text
