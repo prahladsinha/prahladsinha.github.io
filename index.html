@@ -112,6 +112,22 @@ main{width:min(100%,520px);margin:0 auto;padding:28px 16px 100px}
 .end h2{font-size:20px;margin:0 0 4px}
 .end p{color:var(--mute);margin:0 0 18px}
 .end .btns{max-width:420px;margin:0 auto}
+/* profile layout */
+.prof{grid-template-areas:"av nm" "st st" "bio bio" "btn btn";column-gap:22px}
+.avatar{grid-area:av}.nm{grid-area:nm}.stats{grid-area:st}.bio{grid-area:bio}.btns{grid-area:btn}
+@media(min-width:861px){
+  main{width:min(100%,980px);padding:44px 36px 80px}
+  .prof{grid-template-columns:240px minmax(0,1fr);grid-template-areas:"av nm" "av st" "av bio" "av btn";column-gap:40px;align-items:start}
+  .avatar{width:168px;align-self:center;justify-self:center}
+  .prof h1{font-size:40px}
+  .stats{grid-template-columns:repeat(3,max-content);gap:40px;text-align:left;margin:18px 0 14px}
+  .stats span{max-width:15ch}
+  .btns{max-width:480px}
+  .stories{gap:34px;padding:34px 0 30px 30px}
+  .story{width:96px}.ring{width:92px;height:92px}
+  .story small{font-size:13px}
+  .grid{gap:5px}
+}
 /* post modal */
 .tabs.one{grid-template-columns:1fr}.tabs.one .tab{margin:-1.5px 0 0;font-size:16px;cursor:default}
 .pmodal{position:fixed;inset:0;z-index:40;background:rgba(10,9,8,.8);display:none;place-items:center;padding:16px;overflow-y:auto}
@@ -172,11 +188,10 @@ main{width:min(100%,520px);margin:0 auto;padding:28px 16px 100px}
   <main>
     <section class="prof" aria-label="Profile">
       <div class="avatar" role="img" aria-label="Prahlad Sinha"></div>
-      <div>
+      <div class="nm">
         <h1>Prahlad Sinha</h1>
         <p class="handle">Marketing · Chicago, IL</p>
       </div>
-    </section>
     <div class="stats">
       <div><b>+200%</b><span>weekly kit sales from my flyers</span></div>
       <div><b>426</b><span>shares on one carousel</span></div>
@@ -191,6 +206,7 @@ main{width:min(100%,520px);margin:0 auto;padding:28px 16px 100px}
       <a class="btn" href="https://prahladsinha.github.io/Prahlad_Sinha_Resume.pdf" target="_blank" rel="noopener">Resume</a>
       <a class="btn" href="https://www.linkedin.com/in/prahladsinha/">LinkedIn</a>
     </div>
+    </section>
 
     <div class="stories" id="stories" aria-label="Jobs, tap to view"></div>
 
