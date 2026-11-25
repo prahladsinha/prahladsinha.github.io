@@ -265,13 +265,40 @@ a.tag:hover,a.tag:focus-visible{background:var(--red);color:var(--ink)}
 .clist a:hover,.clist a:focus-visible{background:var(--bg);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
 footer{border-top:1.5px solid var(--ink)}
 :focus-visible{outline:3px solid var(--red)}
+/* plainer pass: fewer template effects */
+h1,h2,h3,.stat b,.bigs b,.facts b{text-shadow:none}
+.hero h1,.hero h1 span,.contact h2{text-shadow:none}
+.mono{border:0;background:#f5423a url(img/headshot.jpg) 50% 30%/165% no-repeat}
+.card:hover,.card:focus-within,.job.open .card,.sk:hover{transform:none;box-shadow:none}
+.art,.dock{display:none}
+.kt{display:block}.kt span{border:0;background:none;padding:0;font-size:15px}.kt span:hover{background:none;transform:none}.kt span+span::before{content:", "}
+.slides{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;padding-bottom:6px}
+.slides img{flex:0 0 min(72%,320px);aspect-ratio:3/4;object-fit:cover;scroll-snap-align:start;border-radius:6px;border:1.5px solid var(--ink);display:block}
+.snavs{display:flex;align-items:center;gap:8px;margin-top:12px}.snavs .viz-cap{margin:0 0 0 6px}
+.snav{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);font-size:18px;cursor:pointer}.snav:hover,.snav:focus-visible{background:var(--red)}
+.hero::before,.hero::after{content:"";position:absolute;z-index:-1;right:0;top:clamp(24px,4vw,60px);width:min(40vw,540px);aspect-ratio:auto;height:clamp(240px,26vw,360px);border-radius:0;-webkit-mask:none;mask:none;mix-blend-mode:normal}
+.hero::before{background:repeating-linear-gradient(to bottom,#0C234B 0 6px,transparent 6px 11px);clip-path:polygon(0% 100%,0% 74%,20% 50%,30% 56%,40% 62%,62% 20%,80% 52%,88% 46%,100% 56%,100% 100%)}
+.hero::after{z-index:-2;width:clamp(90px,10vw,140px);height:auto;aspect-ratio:1;right:calc(min(40vw,540px) * .66);top:calc(clamp(24px,4vw,60px) + clamp(240px,26vw,360px) * .2);border-radius:50%;background:repeating-linear-gradient(to bottom,var(--red) 0 6px,transparent 6px 11px);opacity:1}
+.top::after{content:"";position:absolute;z-index:-1;pointer-events:none;height:clamp(130px,14vw,190px);aspect-ratio:1/2;right:calc(min(40vw,540px) - clamp(70px,8vw,110px));top:calc(clamp(24px,4vw,60px) + clamp(240px,26vw,360px) - clamp(130px,14vw,190px));background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 204'%3E%3Cpath d='M42 204V32a10 10 0 0 1 20 0v172ZM42 122H26a12 12 0 0 1-12-12V72a8 8 0 0 1 16 0v34h12ZM62 104h16V64a8 8 0 0 1 16 0v40a12 12 0 0 1-12 12H62Z' fill='none' stroke='%23faf6ee' stroke-width='9' stroke-linejoin='round'/%3E%3Cpath d='M42 204V32a10 10 0 0 1 20 0v172ZM42 122H26a12 12 0 0 1-12-12V72a8 8 0 0 1 16 0v34h12ZM62 104h16V64a8 8 0 0 1 16 0v40a12 12 0 0 1-12 12H62Z' fill='%236f9a3a'/%3E%3C/svg%3E") center bottom/contain no-repeat}
+.head{box-shadow:6px 6px 0 var(--red);border-color:var(--paper)}
+.alt{background:var(--panel)}
+.contact{background:var(--red)}
+.hero::before,.hero::after,.top::after{display:none}
+.top{grid-template-columns:minmax(0,1fr) clamp(240px,36vw,480px);align-items:end}
+.scene{display:block;width:100%;height:auto;overflow:hidden}
+.grow{transform-box:fill-box;transform-origin:50% 100%;animation:grow 1.1s cubic-bezier(.2,.8,.2,1) .4s both}
+@keyframes grow{from{transform:scaleY(0)}}
+@media(prefers-reduced-motion:reduce){.grow{animation:none}}
+@media(max-width:760px){.top{grid-template-columns:minmax(0,1fr)}.scene{max-width:400px;margin-top:8px}}
+@media(max-width:760px){.hero::before{width:min(58vw,360px);height:clamp(150px,34vw,220px);top:10px}.hero::after{width:clamp(56px,12vw,80px);right:calc(min(58vw,360px) * .62);top:24px}.top::after{height:clamp(80px,18vw,120px);right:calc(min(58vw,360px) - clamp(44px,10vw,64px));top:calc(10px + clamp(150px,34vw,220px) - clamp(80px,18vw,120px))}}
+.say{font-family:Anton,Impact,sans-serif;font-size:clamp(40px,5vw,64px);line-height:1;margin:0;max-width:none}
 </style>
-<script>document.documentElement.classList.add('js')</script>
+
 </head>
 <body>
 <nav aria-label="Main">
   <div class="wrap">
-    <a class="mark" href="#top"><img class="mono" src="img/headshot.jpg" alt="">Prahlad Sinha</a>
+    <a class="mark" href="#top"><span class="mono" aria-hidden="true"></span>Prahlad Sinha</a>
     <div class="links">
       <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a><a href="https://prahladsinha.github.io/Prahlad_Sinha_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
@@ -280,14 +307,26 @@ footer{border-top:1.5px solid var(--ink)}
 
 <header class="band hero" id="top">
   <div class="wrap">
-    <div class="top"><h1>Prahlad<span>Sinha</span></h1><img class="head" src="img/headshot.jpg" alt="Prahlad Sinha in a navy suit at the Eller College of Management"></div>
+    <div class="top"><h1>Prahlad<span>Sinha</span></h1><svg class="scene" viewBox="0 0 400 300" role="img" aria-label="Prahlad Sinha's headshot as the sun over striped Arizona mountains and a saguaro">
+      <defs>
+        <pattern id="stripes" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="6" fill="#0C234B"/></pattern>
+        <clipPath id="sun"><circle cx="248" cy="156" r="70"/></clipPath>
+        <path id="mtn" d="M-10 310V238Q40 230 72 224L188 186Q197 182 206 187L282 230Q302 221 320 219Q332 218 344 224L410 252V310Z"/>
+        <path id="cac" d="M42 204V32a10 10 0 0 1 20 0v172ZM42 122H26a12 12 0 0 1-12-12V72a8 8 0 0 1 16 0v34h12ZM62 104h16V64a8 8 0 0 1 16 0v40a12 12 0 0 1-12 12H62Z"/>
+      </defs>
+            <g id="sunset" clip-path="url(#sun)"><circle cx="248" cy="156" r="71" fill="#f5423a"/>
+      <image href="img/headshot.jpg" x="133" y="62" width="230" height="230" preserveAspectRatio="xMidYMid slice"/></g>
+      <use href="#mtn" fill="#faf6ee" stroke="#faf6ee" stroke-width="8" stroke-linejoin="round"/>
+      <use href="#mtn" fill="url(#stripes)"/>
+      <g transform="translate(0 98)"><g class="grow"><use href="#cac" fill="none" stroke="#faf6ee" stroke-width="9" stroke-linejoin="round"/><use href="#cac" fill="#6f9a3a"/></g></g>
+    </svg></div>
     <div class="intro">
       <div>
       <p>Business Marketing graduate from the University of Arizona's Eller College. I've run in-store promotions, email and SMS flows, and campus social content at Techtronic Industries, Barnyard Records and the McGuire Center.</p>
-      <p class="open"><i></i>Graduating May 2027 and open to full-time marketing roles</p>
+      <p class="mute">Graduating May 2027 and looking for a full-time marketing job, ideally in Chicago.</p>
       </div>
       <div class="ctas">
-        <a class="btn solid" href="#projects">See my work</a>
+        <a class="btn solid" href="#projects">Projects</a>
         <a class="btn" href="https://prahladsinha.github.io/Prahlad_Sinha_Resume.pdf" target="_blank" rel="noopener">Resume</a>
         <a class="btn" href="https://www.linkedin.com/in/prahladsinha/">LinkedIn</a>
       </div>
@@ -295,7 +334,7 @@ footer{border-top:1.5px solid var(--ink)}
   </div>
   <div class="wrap stats" aria-label="Highlights">
     <div class="stat"><b>+200%</b><span>Weekly combo kit sales from my promo flyers</span></div>
-    <div class="stat"><b>20</b><span>Attendees at the first Wildcat Hangout through in-person and online outreach</span></div>
+    <div class="stat"><b>426</b><span>Shares on a production tip carousel I made for Barnyard Records</span></div>
     <div class="stat"><b>500%+</b><span>Of daily sales average on Milwaukee Demo Day</span></div>
     <div class="stat"><b>10,000+</b><span>Books donated in one week for the Pi Beta Phi literacy drive</span></div>
   </div>
@@ -305,7 +344,7 @@ footer{border-top:1.5px solid var(--ink)}
   <div class="wrap about">
     <div>
       <h2>About me</h2>
-      <p>I like marketing work I can measure. At TTI I designed a promo flyer and watched weekly combo kit sales triple, and at Barnyard Records I mapped where clients dropped off and rebuilt the emails around those spots.</p>
+      <p>At TTI I designed a promo flyer and weekly combo kit sales tripled. At Barnyard Records I mapped where clients dropped off, rebuilt the emails around those spots, and made Instagram content for their producer audience.</p>
       <p class="mute">I've sold face to face on retail floors and at campus events, and I've worked behind the scenes in email, SMS and social. I'm from Chicago and looking for a full-time marketing role.</p>
     </div>
     <div class="edu">
@@ -342,7 +381,7 @@ footer{border-top:1.5px solid var(--ink)}
           <h3>Marketing &amp; Operations Intern</h3>
           <div class="org"><a href="https://barnyardrecs.com/" target="_blank" rel="noopener">Barnyard Records</a>, Los Angeles</div>
           <p class="mute">Restructured email and SMS flows to improve client conversions, and visually mapped customer and business workflows to streamline internal processes.</p>
-          <div class="drawer" id="hl1"><div><ul><li>Built a top-to-bottom <b>user acquisition flowchart</b>, from browsing to post-session follow-up</li><li>Found drop-off points and missing touchpoints in the funnel</li><li>Rebuilt email and SMS sequences around those gaps to nurture new users and bring past clients back</li></ul></div></div>
+          <div class="drawer" id="hl1"><div><ul><li>Built a top-to-bottom <b>user acquisition flowchart</b>, from browsing to post-session follow-up</li><li>Found drop-off points and missing touchpoints in the funnel</li><li>Rebuilt email and SMS sequences around those gaps to nurture new users and bring past clients back</li><li>Made production tip carousels for Instagram, including one with <b>426 shares</b></li></ul></div></div>
           <button class="more" type="button" aria-expanded="false" aria-controls="hl1">Highlights<i aria-hidden="true"></i></button>
         </div>
       </article>
@@ -377,6 +416,25 @@ footer{border-top:1.5px solid var(--ink)}
 
     <article class="proj">
       <div>
+        <a class="tag" href="https://www.instagram.com/p/DcO6zkAAQwW/" target="_blank" rel="noopener">Barnyard Records on Instagram</a>
+        <h3>Instagram Carousels for BYR</h3>
+        <p class="mute">I made production tip carousels for BYR's Instagram: coming up with the ideas, finding the visuals, writing the captions and scheduling the posts. This one, on layering white noise over a sub in Serum 2, was one of the best performers.</p>
+        <p class="result">426 shares and 851 likes, and the comments filled up with producers asking follow-up questions.</p>
+      </div>
+      <div class="viz">
+        <div class="slides" tabindex="0" role="region" aria-label="Carousel slides, scroll sideways">
+          <img src="img/byr-carousel-1.jpg" alt="Slide 1: How to actually layer your sub and noise">
+          <img src="img/byr-carousel-2.jpg" alt="Slide 2: Add a resonant white noise with pitch tracking" loading="lazy">
+          <img src="img/byr-carousel-3.jpg" alt="Slide 3: Drag the sub oscillator to the noise level in Serum 2" loading="lazy">
+          <img src="img/byr-carousel-4.jpg" alt="Slide 4: FX settings for distortion, bandreject and stereo width" loading="lazy">
+          <img src="img/byr-carousel-5.jpg" alt="Slide 5: And voila, the noise follows the sub" loading="lazy">
+        </div>
+        <div class="snavs"><button class="snav" type="button" data-d="-1" aria-label="Previous slide">&larr;</button><button class="snav" type="button" data-d="1" aria-label="Next slide">&rarr;</button><span class="viz-cap">One of my carousels, posted August 2026</span></div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div>
         <a class="tag" href="https://barnyardrecs.com/" target="_blank" rel="noopener">Barnyard Records</a>
         <h3>User Acquisition Flowchart</h3>
         <p class="mute">To streamline BYR's business process, I built a top-to-bottom funnel flowchart covering browsing, booking, payment and post-session follow-up. Mapping it visually exposed drop-off points and missing touchpoints.</p>
@@ -395,13 +453,9 @@ footer{border-top:1.5px solid var(--ink)}
         <p class="mute">I started prepping weeks before Demo Day. I briefed coworkers on the featured products and talking points, put flyers up around the store, and reached out to clients myself.</p>
         <p class="result">Milwaukee sales that day hit more than 500% of the daily average.</p>
       </div>
-      <div class="viz" aria-label="Demo Day sales versus daily average">
+      <div class="viz">
         <img class="shot wide" src="img/milwaukee.jpg" alt="Milwaukee and Home Depot team on the store floor for Demo Day">
-        <div class="bars">
-          <div class="brow"><span>Daily average</span><div class="bar" style="width:19%"></div><span class="bval">100%</span></div>
-          <div class="brow"><span>Demo Day</span><div class="bar hot" style="width:100%"></div><span class="bval">500%+</span></div>
-        </div>
-        <div class="viz-cap">Milwaukee sales, in-store</div>
+        <div class="viz-cap">The Milwaukee and Home Depot team on Demo Day</div>
       </div>
     </article>
 
@@ -412,10 +466,9 @@ footer{border-top:1.5px solid var(--ink)}
         <p class="mute">To launch the first Wildcat Hangout for Entrepreneurs, I posted on social media and tabled across campus, pitching the event to students face to face.</p>
         <p class="result">The first event drew 20 attendees.</p>
       </div>
-      <div class="viz" aria-label="20 attendees">
+      <div class="viz">
         <div class="pair"><img class="shot" src="img/tabling.jpg" alt="Tabling for the Startup Wildcats Hangout with the McGuire Center"><img class="shot" src="img/hangout.jpg" alt="The first Startup Wildcats Hangout in session"><img class="shot" src="img/storyboard.jpg" alt="Attendees sharing a six-frame pitch storyboard at the Wildcat Hangout"></div>
-        <div class="dots" id="dots"></div>
-        <div class="viz-cap">20 attendees at the first event</div>
+        <div class="viz-cap">Tabling on campus, the first Hangout, and attendees sharing pitch storyboards</div>
       </div>
     </article>
 
@@ -424,9 +477,9 @@ footer{border-top:1.5px solid var(--ink)}
         <a class="tag" href="https://www.ttigroup.com/" target="_blank" rel="noopener">Techtronic Industries</a>
         <h3>PRIME Battery Dock Concept</h3>
         <p class="mute">For TTI's Operation Innovation pitch, I developed PRIME, a Ryobi ONE+ battery diagnostic dock. I built the full concept: product naming, pricing justification, a pitch script and the slogan.</p>
-        <p class="result">"Don't Guess. Build."</p>
+        
       </div>
-      <div class="viz" aria-label="Illustration of the PRIME dock concept">
+      <div class="viz"><p class="say">&ldquo;Don&rsquo;t Guess. Build.&rdquo;</p>
         <svg class="dock" viewBox="0 0 440 240" role="img" aria-label="Battery sitting in a diagnostic dock">
           <ellipse cx="220" cy="214" rx="180" ry="14" fill="#000"/>
           <path d="M60 150 Q60 130 80 130 H360 Q380 130 380 150 V200 Q380 210 370 210 H70 Q60 210 60 200 Z" fill="#1c1c1c"/>
@@ -442,7 +495,7 @@ footer{border-top:1.5px solid var(--ink)}
           <rect x="140" y="44" width="70" height="20" rx="4" fill="#9aa336"/>
           <path d="M120 60 H130 V136 H108 V72 Q108 60 120 60 Z" fill="#e2ea74"/>
         </svg>
-        <div class="viz-cap">Concept illustration</div>
+        <div class="viz-cap">The slogan I wrote for the PRIME pitch</div>
       </div>
     </article>
 
@@ -456,6 +509,7 @@ footer{border-top:1.5px solid var(--ink)}
       <div class="viz" aria-label="10,000+ books and $5,000 donated in one week">
         <img class="shot wide" style="aspect-ratio:4/3;object-position:50% 86%" src="img/bookdrive.jpg" alt="Zeta Psi brothers in a moving truck loaded with boxes of donated books for the Pi Beta Phi literacy drive">
         <div class="bigs"><div><b>10,000+</b><span>books donated</span></div><div><b>$5,000</b><span>raised</span></div></div>
+        
         <div class="viz-cap">One week of collection, fall 2025</div>
       </div>
     </article>
@@ -465,7 +519,7 @@ footer{border-top:1.5px solid var(--ink)}
 <section class="band alt" id="skills">
   <div class="wrap">
     <div class="skills-head">
-      <h2>What I bring</h2>
+      <h2>Skills</h2>
     </div>
     <div class="skills">
       <div class="skill">
@@ -558,7 +612,7 @@ footer{border-top:1.5px solid var(--ink)}
 
 <section class="band contact" id="contact">
   <div class="wrap">
-    <h2>Let's work together</h2>
+    <h2>Contact</h2>
     <div class="clist">
       <a href="mailto:prahladsinha2@gmail.com"><small>Email</small><strong>prahladsinha2@gmail.com</strong></a>
       <a href="https://www.linkedin.com/in/prahladsinha/"><small>LinkedIn</small><strong>linkedin.com/in/prahladsinha</strong></a>
@@ -567,12 +621,37 @@ footer{border-top:1.5px solid var(--ink)}
   </div>
 </section>
 
+<script>
+{
+  const sun = document.getElementById('sunset'), hero = document.getElementById('top');
+  if (sun && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let tick = false, intro = 1;
+    const set = () => {
+      tick = false;
+      const p = Math.min(1, Math.max(0, scrollY / (hero.offsetHeight * 0.7)));
+      sun.setAttribute('transform', 'translate(0 ' + (Math.max(p, intro) * 150).toFixed(1) + ')');
+    };
+    addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(set); } }, {passive: true});
+    set();
+    const t0 = performance.now() + 700, D = 1800;
+    const rise = now => {
+      const k = Math.min(1, Math.max(0, (now - t0) / D));
+      intro = Math.pow(1 - k, 3);
+      set();
+      if (k < 1) requestAnimationFrame(rise);
+    };
+    requestAnimationFrame(rise);
+  }
+}
+</script>
 <footer><span>Prahlad Sinha</span><span>Tucson, AZ and Chicago, IL</span></footer>
 
 <script>
 {
-  const dots = document.getElementById('dots');
-  dots.innerHTML = Array.from({length:20},()=>'<div class="dot"></div>').join('');
+  const sl = document.querySelector('.slides');
+  document.querySelectorAll('.snav').forEach(b => b.addEventListener('click', () => {
+    sl.scrollBy({left: +b.dataset.d * (sl.firstElementChild.offsetWidth + 10), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+  }));
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -600,7 +679,7 @@ footer{border-top:1.5px solid var(--ink)}
   [...targets, tl].forEach(el => rio.observe(el));
 
   // Count-up numbers when they scroll into view
-  const nums = document.querySelectorAll('.stat b, .facts b, .bigs b');
+  const nums = [];
   const run = el => {
     const m = el.textContent.match(/^([^\d]*)([\d,]+)(.*)$/);
     if (!m || reduce) return;
