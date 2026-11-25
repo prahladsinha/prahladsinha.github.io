@@ -20,9 +20,6 @@
 <meta name="twitter:image" content="https://prahladsinha.github.io/img/og.jpg">
 <link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="icon" type="image/png" href="img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 /* VOICE a social profile you scroll like your own feed: casual, quick, still professional
    IDEA his marketing work as posts, his jobs as stories, his results where follower counts go
@@ -171,6 +168,17 @@ main{width:min(100%,520px);margin:0 auto;padding:28px 16px 100px}
   .mbar .nav:hover{background:none}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* match Instagram's system font */
+body,button{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.side .logo,.prof h1,.stats b,.textcard p,.textcard small,.vbody h3,.mtop b,.grid .txt{font-family:inherit}
+.side .logo{font-weight:700;font-size:26px}
+.mtop b{font-weight:700;font-size:20px}
+.prof h1{text-transform:none;font-weight:600;font-size:clamp(22px,5.5vw,26px);line-height:1.2}
+.stats b{font-weight:700;font-size:clamp(18px,5vw,22px)}
+.textcard p{font-weight:800;text-transform:none;font-size:clamp(34px,9vw,52px);line-height:1.05}
+.vbody h3{font-weight:700;font-size:clamp(24px,6.5vw,30px);line-height:1.15}
+.grid .txt{font-weight:800;font-size:clamp(14px,4vw,20px)}
+@media(min-width:861px){.prof h1{font-size:28px}.stats b{font-size:24px}}
 </style>
 </head>
 <body>
