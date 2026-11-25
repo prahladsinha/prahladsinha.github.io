@@ -98,6 +98,13 @@ main{width:min(100%,520px);margin:0 auto;padding:28px 16px 100px}
 .end h2{font-size:20px;margin:0 0 4px}
 .end p{color:var(--mute);margin:0 0 18px}
 .end .btns{max-width:420px;margin:0 auto}
+/* post modal */
+.grid{margin-top:4px;border-top:1.5px solid var(--line);padding-top:18px}
+.pmodal{position:fixed;inset:0;z-index:40;background:rgba(10,9,8,.8);display:none;place-items:center;padding:16px;overflow-y:auto}
+.pmodal.on{display:grid}
+.pbox{position:relative;width:min(100%,480px)}
+.pbox .post{margin:0}
+.pclose{position:absolute;z-index:3;top:8px;right:8px;width:40px;height:40px;border-radius:50%;border:0;background:var(--card);font-size:24px;line-height:1;cursor:pointer}
 /* story viewer */
 .viewer{position:fixed;inset:0;z-index:50;background:rgba(10,9,8,.94);display:none;place-items:center}
 .viewer.on{display:grid}
@@ -141,8 +148,7 @@ main{width:min(100%,520px);margin:0 auto;padding:28px 16px 100px}
 <div class="app">
   <aside class="side" aria-label="Menu">
     <p class="logo">Prahlad<span>.</span></p>
-    <button class="nav" data-go="feed" aria-current="true"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3Z"/></svg>Feed</button>
-    <button class="nav" data-go="grid"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Grid</button>
+    <a class="nav" href="#grid" aria-current="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Work</a>
     <a class="nav" href="https://prahladsinha.github.io/Prahlad_Sinha_Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6Z"/><path d="M14 2v6h6M9 13h8M9 17h8"/></svg>Resume</a>
     <a class="nav" href="https://www.linkedin.com/in/prahladsinha/"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a>
     <a class="nav" href="mailto:prahladsinha2@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
@@ -174,13 +180,13 @@ main{width:min(100%,520px);margin:0 auto;padding:28px 16px 100px}
 
     <div class="stories" id="stories" aria-label="Jobs, tap to view"></div>
 
-    <div class="tabs" role="tablist">
+    <div class="tabs" role="tablist" hidden>
       <button class="tab" role="tab" id="t-feed" aria-selected="true" aria-controls="feed"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16"/></svg>Feed</button>
       <button class="tab" role="tab" id="t-grid" aria-selected="false" aria-controls="grid"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Grid</button>
     </div>
 
-    <div id="feed" role="tabpanel" aria-labelledby="t-feed"></div>
-    <div id="grid" class="grid" role="tabpanel" aria-labelledby="t-grid" hidden></div>
+    <div id="feed" hidden></div>
+    <div id="grid" class="grid" aria-label="Work"></div>
 
     <div class="end">
       <div class="check"><svg viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg></div>
@@ -197,11 +203,13 @@ main{width:min(100%,520px);margin:0 auto;padding:28px 16px 100px}
 </div>
 
 <nav class="mbar" aria-label="Tabs">
-  <button class="nav" data-go="feed"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3Z"/></svg>Feed</button>
-  <button class="nav" data-go="grid"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Grid</button>
+  <a class="nav" href="#grid"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Work</a>
+  <a class="nav" href="https://prahladsinha.github.io/Prahlad_Sinha_Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6Z"/><path d="M14 2v6h6M9 13h8M9 17h8"/></svg>Resume</a>
   <a class="nav" href="https://www.linkedin.com/in/prahladsinha/"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a>
   <a class="nav" href="mailto:prahladsinha2@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
 </nav>
+
+<div class="pmodal" id="pmodal" role="dialog" aria-modal="true" aria-label="Post"><div class="pbox"><button class="pclose" id="pclose" aria-label="Close">&times;</button><div id="pslot"></div></div></div>
 
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Job story">
   <div class="frame" id="frame">
@@ -245,15 +253,15 @@ const POSTS = [
   {id:'byr-carousel', org:'Barnyard Records', sub:'Instagram carousel · Aug 2026', imgs:[1,2,3,4,5].map(n=>'../img/byr-carousel-'+n+'.jpg'), alt:'BYR production tip carousel slide',
    counts:{heart:'851', chat:'17', repost:'20', share:'426'},
    cap:'One of the production tip carousels I made for BYR\'s Instagram. I came up with the idea, found the visuals, wrote the captions and scheduled it. The comments filled up with producers asking follow-up questions.', tags:'#socialcontent #instagram'},
+  {id:'flowchart', org:'Barnyard Records', sub:'Email and SMS flows', imgs:['../img/byr-flowchart.jpg'], alt:'BYR user acquisition flowchart, details blurred', fit:'contain',
+   result:'Rebuilt the email and SMS sequences',
+   cap:'Mapped BYR\'s whole funnel in Miro, from first touch to winback. It showed where clients dropped off, so I rebuilt the email and SMS sequences around those gaps. Details blurred to keep client info confidential.', tags:'#email #sms #funnel'},
   {id:'demo-day', org:'Techtronic Industries', sub:'Milwaukee Demo Day', imgs:['../img/milwaukee.jpg'], alt:'Milwaukee and Home Depot team on Demo Day',
    result:'<b>500%+</b> of daily sales average',
    cap:'Started prepping weeks before Demo Day. I briefed coworkers on the featured products and talking points, put flyers up around the store, and reached out to clients myself.', tags:'#retail #inperson'},
   {id:'hangout', org:'McGuire Center', sub:'Wildcat Hangout launch', imgs:['../img/tabling.jpg','../img/hangout.jpg','../img/storyboard.jpg'], alt:'Wildcat Hangout for Entrepreneurs',
    result:'<b>20</b> attendees at the first event',
    cap:'To launch the first Wildcat Hangout for Entrepreneurs, I posted on social media and tabled across campus, pitching the event to students face to face.', tags:'#events #campus'},
-  {id:'flowchart', org:'Barnyard Records', sub:'Email and SMS flows', imgs:['../img/byr-flowchart.jpg'], alt:'BYR user acquisition flowchart, details blurred', fit:'contain',
-   result:'Rebuilt the email and SMS sequences',
-   cap:'Mapped BYR\'s whole funnel in Miro, from first touch to winback. It showed where clients dropped off, so I rebuilt the email and SMS sequences around those gaps. Details blurred to keep client info confidential.', tags:'#email #sms #funnel'},
   {id:'prime', org:'Techtronic Industries', sub:'Operation Innovation pitch', text:'Don’t Guess. Build.', textSub:'PRIME battery dock concept',
    result:'Pitched for Operation Innovation',
    cap:'Developed PRIME, a Ryobi ONE+ battery diagnostic dock: the product naming, pricing justification, pitch script and slogan.', tags:'#product #pitch'},
@@ -282,7 +290,7 @@ grid.innerHTML = POSTS.map(p => p.text
   : '<button data-id="' + p.id + '" style="background-image:url(' + p.imgs[0] + ')' + (p.fit ? ';background-size:contain;background-color:#f3f3f5' : '') + '"><span>' + p.sub + '</span></button>').join('');
 
 // carousels
-feed.querySelectorAll('.post').forEach(post => {
+const bind = post => {
   const s = post.querySelector('.slides'); if (!s) return;
   const dots = [...post.querySelectorAll('.dots i')];
   const go = d => s.scrollBy({left: d * s.clientWidth, behavior: 'smooth'});
@@ -290,20 +298,23 @@ feed.querySelectorAll('.post').forEach(post => {
   post.querySelector('.arrow.r')?.addEventListener('click', () => go(1));
   s.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(1); if (e.key === 'ArrowLeft') go(-1); });
   s.addEventListener('scroll', () => { const i = Math.round(s.scrollLeft / s.clientWidth); dots.forEach((d,k) => d.classList.toggle('on', k === i)); }, {passive:true});
-});
-
-// tabs
-const tf = document.getElementById('t-feed'), tg = document.getElementById('t-grid');
-const show = which => {
-  const g = which === 'grid';
-  grid.hidden = !g; feed.hidden = g;
-  tf.setAttribute('aria-selected', !g); tg.setAttribute('aria-selected', g);
-  document.querySelectorAll('.side .nav[data-go]').forEach(n => n.setAttribute('aria-current', n.dataset.go === which));
 };
-tf.addEventListener('click', () => show('feed'));
-tg.addEventListener('click', () => show('grid'));
-document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => { show(b.dataset.go); document.querySelector('.tabs').scrollIntoView({behavior:'smooth'}); }));
-grid.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; show('feed'); document.getElementById(b.dataset.id).scrollIntoView({behavior:'smooth'}); });
+
+// grid opens posts in a popup
+const PM = document.getElementById('pmodal'), slot = document.getElementById('pslot');
+let pOpener = null;
+const closePost = () => { PM.classList.remove('on'); slot.innerHTML = ''; document.body.style.overflow = ''; pOpener && pOpener.focus(); };
+grid.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  pOpener = b;
+  const c = document.getElementById(b.dataset.id).cloneNode(true); c.removeAttribute('id');
+  slot.innerHTML = ''; slot.appendChild(c); bind(c);
+  PM.classList.add('on'); document.body.style.overflow = 'hidden';
+  document.getElementById('pclose').focus();
+});
+document.getElementById('pclose').addEventListener('click', closePost);
+PM.addEventListener('click', e => { if (e.target === PM) closePost(); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && PM.classList.contains('on')) closePost(); });
 
 // stories
 const sbox = document.getElementById('stories');
