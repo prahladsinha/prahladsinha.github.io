@@ -181,6 +181,11 @@ body,button{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helve
 @media(min-width:861px){.prof h1{font-size:28px}.stats b{font-size:24px}}
 .side .logo{display:block;margin:0 0 26px 10px}.side .logo img{display:block;width:132px;height:auto}
 .mlogo img{display:block;height:30px;width:auto}
+.stats{display:flex;flex-wrap:wrap;gap:6px 26px;margin:16px 0 14px;text-align:left}
+.stats p{margin:0;white-space:nowrap;font-size:16px}
+.stats b{display:inline;color:var(--ink);font-size:16px;font-weight:700}
+@media(max-width:860px){.stats{justify-content:space-around;gap:6px 14px;padding:12px 0;border-block:1px solid var(--line)}}
+@media(min-width:861px){.stats{gap:6px 40px;margin:18px 0 16px}.stats p,.stats b{font-size:17px}}
 </style>
 </head>
 <body id="top">
@@ -203,9 +208,10 @@ body,button{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helve
         <p class="handle">Marketing · Chicago, IL</p>
       </div>
     <div class="stats">
-      <div><b>+200%</b><span>weekly kit sales from my flyers</span></div>
-      <div><b>426</b><span>shares on one carousel</span></div>
-      <div><b>20</b><span>attendees at my first campus event</span></div>
+      <p title="Weekly combo kit sales from my promo flyers at TTI"><b>+200%</b> kit sales</p>
+      <p title="Shares on one of my BYR Instagram carousels"><b>426</b> shares</p>
+      <p title="Attendees at the first Wildcat Hangout I promoted"><b>20</b> attendees</p>
+    </div>
     </div>
     <div class="bio">
       <p>Business Marketing at the University of Arizona, Eller College. Graduating May 2027.</p>
