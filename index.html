@@ -287,6 +287,8 @@ h1,h2,h3,.stat b,.bigs b,.facts b{text-shadow:none}
 .scene{display:block;width:100%;height:auto;overflow:hidden}
 .grow{will-change:transform}
 .timeline{align-items:stretch}
+nav{background:var(--bg);backdrop-filter:none;-webkit-backdrop-filter:none}
+nav::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:100vh;background:var(--bg);pointer-events:none}
 .stat,.stat:nth-child(n){border-right:0;border-bottom:0}
 .job:hover::before,.job.open::before{box-shadow:0 0 0 5px var(--panel)}
 .more:hover i,.job.open .more i{background:none}
