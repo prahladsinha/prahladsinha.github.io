@@ -288,6 +288,8 @@ h1,h2,h3,.stat b,.bigs b,.facts b{text-shadow:none}
 .scene{display:block;width:100%;height:auto;overflow:hidden}
 .grow{will-change:transform}
 .timeline{align-items:stretch}
+.job:hover::before,.job.open::before{box-shadow:0 0 0 5px var(--panel)}
+.more:hover i,.job.open .more i{background:none}
 @media(max-width:760px){.top{grid-template-columns:minmax(0,1fr)}.scene{max-width:400px;margin-top:8px}}
 @media(max-width:760px){.hero::before{width:min(58vw,360px);height:clamp(150px,34vw,220px);top:10px}.hero::after{width:clamp(56px,12vw,80px);right:calc(min(58vw,360px) * .62);top:24px}.top::after{height:clamp(80px,18vw,120px);right:calc(min(58vw,360px) - clamp(44px,10vw,64px));top:calc(10px + clamp(150px,34vw,220px) - clamp(80px,18vw,120px))}}
 .say{font-family:Anton,Impact,sans-serif;font-size:clamp(40px,5vw,64px);line-height:1;margin:0;max-width:none}
