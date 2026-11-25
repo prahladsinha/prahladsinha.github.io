@@ -333,9 +333,9 @@ const POSTS = [
   {id:'hangout', org:'McGuire Center', sub:'Wildcat Hangout launch', imgs:['img/tabling.jpg','img/hangout.jpg','img/storyboard.jpg'], alt:'Wildcat Hangout for Entrepreneurs',
    result:'<b>20</b> attendees at the first event',
    cap:'To launch the first Wildcat Hangout for Entrepreneurs, I posted on social media and tabled across campus, pitching the event to students face to face.', tags:'#events #campus'},
-  {id:'prime', org:'Techtronic Industries', sub:'Operation Innovation pitch', text:'Don’t Guess. Build.', textSub:'PRIME battery dock concept',
-   result:'Pitched for Operation Innovation',
-   cap:'Developed PRIME, a Ryobi ONE+ battery diagnostic dock: the product naming, pricing justification, pitch script and slogan.', tags:'#product #pitch'},
+  {id:'prime', org:'Techtronic Industries', sub:'PRIME concept pitch', text:'Don\u2019t Guess. Build.', imgs:['img/prime-mockup.jpg'], alt:'Concept mockup of the PRIME battery diagnostic dock',
+   result:'Concept only, pitched for Operation Innovation',
+   cap:'PRIME was a product idea I pitched for TTI\'s Operation Innovation: a dock that checks the health of Ryobi ONE+ batteries. It stayed a concept. I built out the name, the pricing justification, the pitch script and the slogan. The mockup is my own illustration.', tags:'#product #pitch'},
   {id:'book-drive', org:'Zeta Psi', sub:'Pi Beta Phi literacy drive', imgs:['img/bookdrive.jpg'], alt:'Truck loaded with donated books',
    result:'<b>10,000+</b> books and <b>$5,000</b> in one week',
    cap:'As lead philanthropy organizer, I sourced books in bulk from Facebook Marketplace, Goodwill and local stores.', tags:'#community'}
@@ -343,7 +343,7 @@ const POSTS = [
 
 const feed = document.getElementById('feed'), grid = document.getElementById('grid');
 feed.innerHTML = POSTS.map(p => {
-  const media = p.text
+  const media = (p.text && !p.imgs)
     ? '<div class="textcard"><p>' + p.text + '<small>' + p.textSub + '</small></p></div>'
     : '<div class="media"><div class="slides" tabindex="0" aria-label="' + p.alt + 's">' +
         p.imgs.map((s,i) => '<img src="' + s + '" alt="' + p.alt + (p.imgs.length > 1 ? ' ' + (i+1) : '') + '"' + (p.fit ? ' style="object-fit:contain;background:#f3f3f5"' : '') + (i ? ' loading="lazy"' : '') + '>').join('') +
