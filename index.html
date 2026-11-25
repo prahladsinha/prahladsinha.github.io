@@ -184,7 +184,18 @@ body,button{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helve
 .stats{display:flex;flex-wrap:wrap;gap:6px 26px;margin:16px 0 14px;text-align:left}
 .stats p{margin:0;white-space:nowrap;font-size:16px}
 .stats b{display:inline;color:var(--ink);font-size:16px;font-weight:700}
-@media(max-width:860px){.stats{justify-content:space-around;gap:6px 14px;padding:12px 0;border-block:1px solid var(--line)}}
+@media(max-width:860px){
+  .prof{grid-template-areas:"av nm" "av st" "bio bio" "btn btn";column-gap:clamp(14px,4vw,28px);row-gap:0;align-items:end}
+  .nm{align-self:end}.stats{align-self:start}
+  .avatar{width:clamp(76px,21vw,120px);margin-bottom:14px}
+  .stats{flex-wrap:nowrap;gap:clamp(12px,4vw,26px);margin:8px 0 16px}
+  .stats p,.stats b{font-size:clamp(13px,3.6vw,16px)}
+}
+@media(max-width:520px){
+  .stats{justify-content:space-between;gap:8px}
+  .stats p{text-align:center;line-height:1.25}
+  .stats b{display:block;font-size:16px}
+}
 @media(min-width:861px){.stats{gap:6px 40px;margin:18px 0 16px}.stats p,.stats b{font-size:17px}}
 </style>
 </head>
